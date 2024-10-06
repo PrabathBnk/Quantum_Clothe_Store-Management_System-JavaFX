@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane style="-fx-background-color: #fff;" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.LoginFormController">
+   <center>
+      <Pane fx:id="mainPane" maxWidth="400.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets top="20.0" />
+         </BorderPane.margin>
+         <children>
+            <VBox fx:id="loginPane" alignment="CENTER" maxWidth="500.0" style="-fx-background-color: #fff; -fx-background-radius: 10; -fx-border-color: DDDADB; -fx-border-radius: 10;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Poppins; -fx-font-weight: 700;" styleClass="poppins-m" text="Login to Your Account">
+                     <VBox.margin>
+                        <Insets bottom="30.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <JFXComboBox fx:id="cmbAccountType" focusColor="#d82b5c" maxWidth="400.0" minWidth="300.0" promptText="Account Type" styleClass="poppins">
+                     <VBox.margin>
+                        <Insets bottom="25.0" />
+                     </VBox.margin>
+                  </JFXComboBox>
+                  <JFXTextField fx:id="txtEmail" focusColor="#d82b5c" maxWidth="400.0" minWidth="300.0" promptText="Email" styleClass="poppins">
+                     <VBox.margin>
+                        <Insets bottom="25.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <JFXPasswordField fx:id="txtPassword" focusColor="#d82b5c" maxWidth="400.0" promptText="Passwrod" styleClass="poppins" />
+                  <JFXButton maxWidth="150.0" minWidth="100.0" onAction="#btnLoginOnAction" style="-fx-background-color: D82B5C;" styleClass="poppins" text="Login" textFill="WHITE">
+                     <font>
+                        <Font name="Poppins-Regular" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </JFXButton>
+                  <HBox alignment="CENTER">
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                     <children>
+                        <Label onMouseClicked="#lblForgetPwdOnClick" styleClass="poppins" text="Forget Password" textFill="#7f787b" underline="true">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                        <Separator orientation="VERTICAL">
+                           <HBox.margin>
+                              <Insets left="20.0" right="10.0" />
+                           </HBox.margin>
+                        </Separator>
+                        <Label onMouseClicked="#lblCreateAcountOnClick" styleClass="poppins" text="Create New Account" textFill="#7f787b" underline="true">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets bottom="40.0" left="50.0" right="50.0" top="20.0" />
+               </padding>
+            </VBox>
+            <VBox fx:id="createAccountPane" alignment="CENTER" maxWidth="500.0" style="-fx-background-color: #fff; -fx-border-color: DDDADB; -fx-background-radius: 10; -fx-border-radius: 10;" visible="false">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Poppins; -fx-font-weight: 700;" styleClass="poppins-m" text="Create New Account">
+                     <VBox.margin>
+                        <Insets bottom="30.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <JFXComboBox fx:id="cmbAccountTypeCreateAccount" focusColor="#d82b5c" maxWidth="400.0" minWidth="300.0" promptText="Account Type" styleClass="poppins">
+                     <VBox.margin>
+                        <Insets bottom="25.0" />
+                     </VBox.margin>
+                  </JFXComboBox>
+                  <JFXTextField fx:id="txtEmailCreateAccount" focusColor="#d82b5c" maxWidth="400.0" minWidth="300.0" promptText="Email" styleClass="poppins">
+                     <VBox.margin>
+                        <Insets bottom="25.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <JFXPasswordField fx:id="txtPasswordCreateAccount" focusColor="#d82b5c" maxWidth="400.0" promptText="Passwrod" styleClass="poppins">
+                     <VBox.margin>
+                        <Insets bottom="8.0" />
+                     </VBox.margin>
+                  </JFXPasswordField>
+                  <Text fill="#554f51" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="poppins" text="Your password must be at least 8 characters long and include a combination of letters, numbers, and symbols for optimal security" textAlignment="JUSTIFY" wrappingWidth="299.818359375">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                  </Text>
+                  <JFXPasswordField fx:id="txtConfirmPassword" focusColor="#d82b5c" layoutX="61.0" layoutY="182.0" maxWidth="400.0" promptText="Confirm Passwrod" styleClass="poppins" />
+                  <JFXButton maxWidth="200.0" onAction="#btnCreateAccountOnAction" style="-fx-background-color: D82B5C;" styleClass="poppins" text="Create New Account" textFill="WHITE">
+                     <font>
+                        <Font name="Poppins-Regular" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </JFXButton>
+                  <JFXButton layoutX="136.0" layoutY="239.0" maxWidth="200.0" minWidth="-Infinity" onAction="#btnBackOnAction" style="-fx-background-color: FEE5E9;" styleClass="poppins" text="Back" textFill="#d82b5c">
+                     <font>
+                        <Font name="Poppins-Regular" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </JFXButton>
+               </children>
+               <padding>
+                  <Insets bottom="30.0" left="50.0" right="50.0" top="20.0" />
+               </padding>
+            </VBox>
+            <VBox fx:id="confirmUserPane" alignment="CENTER" maxWidth="500.0" style="-fx-background-color: #fff; -fx-border-color: DDDADB; -fx-background-radius: 10; -fx-border-radius: 10;" visible="false">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Poppins; -fx-font-weight: 700;" styleClass="poppins-m" text="Reset Password">
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#554f51" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="poppins" text="Please enter your email address, and we will send you a one-time password (OTP) to assist with resetting your password." textAlignment="JUSTIFY" wrappingWidth="299.818359375">
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Text>
+                  <JFXTextField fx:id="txtEmailConfirmUser" focusColor="#d82b5c" maxWidth="400.0" minWidth="300.0" promptText="Email" styleClass="poppins">
+                     <VBox.margin>
+                        <Insets bottom="25.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <JFXButton maxWidth="200.0" onAction="#btnSendOTPOnAction" style="-fx-background-color: D82B5C;" styleClass="poppins" text="Send OTP" textFill="WHITE">
+                     <font>
+                        <Font name="Poppins-Regular" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </JFXButton>
+                  <JFXButton maxWidth="200.0" minWidth="-Infinity" onAction="#btnBackOnAction" style="-fx-background-color: FEE5E9;" styleClass="poppins" text="Back" textFill="#d82b5c">
+                     <font>
+                        <Font name="Poppins-Regular" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </JFXButton>
+               </children>
+               <padding>
+                  <Insets bottom="30.0" left="50.0" right="50.0" top="20.0" />
+               </padding>
+            </VBox>
+            <VBox fx:id="otpConfirmPane" alignment="CENTER" maxWidth="500.0" style="-fx-background-color: #fff; -fx-border-color: DDDADB; -fx-background-radius: 10; -fx-border-radius: 10;" visible="false">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Poppins; -fx-font-weight: 700;" styleClass="poppins-m" text="Confirm Your OTP">
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#554f51" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="poppins" text="Please check your email inbox for the one-time password (OTP) and enter it below to verify your identity and proceed with resetting your password." textAlignment="JUSTIFY" wrappingWidth="299.818359375">
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Text>
+                  <JFXTextField fx:id="txtOTP" focusColor="#d82b5c" maxWidth="400.0" minWidth="300.0" promptText="OTP" styleClass="poppins">
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </JFXTextField>
+                  <JFXButton maxWidth="200.0" onAction="#btnConfirmOnAction" style="-fx-background-color: D82B5C;" styleClass="poppins" text="Confirm" textFill="WHITE">
+                     <font>
+                        <Font name="Poppins-Regular" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </JFXButton>
+                  <JFXButton maxWidth="200.0" minWidth="-Infinity" onAction="#btnConfirmOTPBackOnAction" style="-fx-background-color: FEE5E9;" styleClass="poppins" text="Back" textFill="#d82b5c">
+                     <font>
+                        <Font name="Poppins-Regular" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </JFXButton>
+               </children>
+               <padding>
+                  <Insets bottom="30.0" left="50.0" right="50.0" top="20.0" />
+               </padding>
+            </VBox>
+            <VBox fx:id="resetPasswordPane" alignment="CENTER" maxWidth="500.0" style="-fx-background-color: #fff; -fx-border-color: DDDADB; -fx-background-radius: 10; -fx-border-radius: 10;" visible="false">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Poppins; -fx-font-weight: 700;" styleClass="poppins-m" text="Create a New Password">
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#554f51" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="poppins" text="Please enter your new password below. Your password must be at least 8 characters long and include a combination of letters, numbers, and symbols for optimal security." textAlignment="JUSTIFY" wrappingWidth="299.818359375">
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Text>
+                  <JFXPasswordField fx:id="txtPasswordResetPwd" focusColor="#d82b5c" maxWidth="400.0" promptText="New Passwrod" styleClass="poppins">
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                  </JFXPasswordField>
+                  <JFXPasswordField fx:id="txtConfirmPasswordResetPwd" focusColor="#d82b5c" maxWidth="400.0" promptText="Confirm Passwrod" styleClass="poppins">
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                  </JFXPasswordField>
+                  <JFXButton maxWidth="200.0" onAction="#btnResetPasswordOnAction" style="-fx-background-color: D82B5C;" styleClass="poppins" text="Reset Password" textFill="WHITE">
+                     <font>
+                        <Font name="Poppins-Regular" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </JFXButton>
+               </children>
+               <padding>
+                  <Insets bottom="30.0" left="50.0" right="50.0" top="20.0" />
+               </padding>
+            </VBox>
+         </children>
+      </Pane>
+   </center>
+   <top>
+      <VBox alignment="CENTER" maxWidth="500.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="121.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/Logo_01.png" />
+               </image>
+               <viewport>
+                  <Rectangle2D />
+               </viewport>
+            </ImageView>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </VBox>
+   </top>
+   <padding>
+      <Insets bottom="300.0" left="500.0" right="500.0" top="200.0" />
+   </padding>
+</BorderPane>
