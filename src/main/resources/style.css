@@ -1,3 +1,24 @@
 .poppins {
     -fx-font-family: "Poppins";
 }
+
+.active-btn {
+    -fx-border-color: "E77B99";
+    -fx-background-color: "FEE5E9";
+    -fx-text-fill: "D82B5C";
+}
+
+.btn:hover{
+    -fx-border-color: "BFBABC";
+    -fx-background-color: "F8F7F8";
+}
+
+.table-header{
+    -fx-text-fill: "white";
+    -fx-background-color: "7F787B";
+}
+
+.border-left{
+    -fx-border-color: "transparent" "transparent" "transparent" "BFBABC";
+    -fx-border-width: 0 0 0 1px;
+}

@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<BorderPane maxHeight="-Infinity" prefHeight="1000.0" prefWidth="1640.0" style="-fx-background-color: F0EEEE;" styleClass="poppins" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.AdminDashboardFormController">
+   <left>
+      <VBox alignment="TOP_CENTER" style="-fx-background-color: fff;" BorderPane.alignment="CENTER">
+         <children>
+            <JFXButton prefHeight="2.0" prefWidth="23.0" text="Button" textFill="#ffffff00" />
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/Logo_02.png" />
+               </image>
+               <VBox.margin>
+                  <Insets bottom="80.0" />
+               </VBox.margin>
+            </ImageView>
+            <JFXButton maxWidth="165.0" minHeight="50.0" style="-fx-font-weight: 700; -fx-border-radius: 8; -fx-background-radius: 8;" styleClass="active-btn" text="Dashboard" textFill="#7f787b">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton layoutX="48.0" layoutY="192.0" maxWidth="165.0" minHeight="50.0" style="-fx-font-weight: 700; -fx-border-radius: 8; -fx-background-radius: 8;" styleClass="btn" text="Employees" textFill="#7f787b">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton layoutX="48.0" layoutY="247.0" maxWidth="165.0" minHeight="50.0" style="-fx-font-weight: 700; -fx-border-radius: 8; -fx-background-radius: 8;" styleClass="btn" text="Users" textFill="#7f787b">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton layoutX="48.0" layoutY="302.0" maxWidth="165.0" minHeight="50.0" style="-fx-font-weight: 700; -fx-border-radius: 8; -fx-background-radius: 8;" styleClass="btn" text="Orders" textFill="#7f787b">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton layoutX="48.0" layoutY="352.0" maxWidth="165.0" minHeight="50.0" style="-fx-font-weight: 700; -fx-border-radius: 8; -fx-background-radius: 8;" styleClass="btn" text="Products" textFill="#7f787b">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton layoutX="48.0" layoutY="402.0" maxWidth="165.0" minHeight="50.0" style="-fx-font-weight: 700; -fx-border-radius: 8; -fx-background-radius: 8;" styleClass="btn" text="Suppliers" textFill="#7f787b">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton layoutX="48.0" layoutY="452.0" maxWidth="165.0" minHeight="50.0" style="-fx-font-weight: 700; -fx-border-radius: 8; -fx-background-radius: 8;" styleClass="btn" text="Reports" textFill="#7f787b">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+            </JFXButton>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="25.0" right="30.0" top="5.0" />
+         </padding>
+      </VBox>
+   </left>
+   <center>
+      <BorderPane BorderPane.alignment="CENTER">
+         <center>
+            <VBox BorderPane.alignment="CENTER">
+               <children>
+                  <HBox minWidth="730.0" spacing="34.0">
+                     <children>
+                        <VBox alignment="CENTER" minWidth="220.0" style="-fx-background-color: fff; -fx-background-radius: 10;">
+                           <children>
+                              <Label style="-fx-font-weight: 700;" text="00" textFill="#554f51">
+                                 <font>
+                                    <Font size="95.0" />
+                                 </font>
+                              </Label>
+                              <Text fill="#7f787b" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Employees" />
+                           </children>
+                           <padding>
+                              <Insets bottom="35.0" left="45.0" right="45.0" top="25.0" />
+                           </padding>
+                        </VBox>
+                        <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" minWidth="220.0" style="-fx-background-color: fff; -fx-background-radius: 10;">
+                           <children>
+                              <Label style="-fx-font-weight: 700;" text="00" textFill="#554f51">
+                                 <font>
+                                    <Font size="95.0" />
+                                 </font>
+                              </Label>
+                              <Text fill="#7f787b" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Users" />
+                           </children>
+                           <padding>
+                              <Insets bottom="30.0" left="45.0" right="45.0" top="20.0" />
+                           </padding>
+                        </VBox>
+                        <VBox alignment="CENTER" layoutX="168.0" layoutY="10.0" minWidth="220.0" style="-fx-background-color: fff; -fx-background-radius: 10;">
+                           <children>
+                              <Label style="-fx-font-weight: 700;" text="00" textFill="#554f51">
+                                 <font>
+                                    <Font size="95.0" />
+                                 </font>
+                              </Label>
+                              <Text fill="#7f787b" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Suppliers" />
+                           </children>
+                           <padding>
+                              <Insets bottom="30.0" left="45.0" right="45.0" top="20.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox minWidth="740.0" spacing="28.0">
+                     <children>
+                        <HBox alignment="CENTER" style="-fx-background-color: fff; -fx-background-radius: 10;">
+                           <children>
+                              <VBox alignment="CENTER" minWidth="204.0">
+                                 <children>
+                                    <Label style="-fx-font-weight: 700;" text="00" textFill="#554f51">
+                                       <font>
+                                          <Font size="95.0" />
+                                       </font>
+                                    </Label>
+                                    <Text fill="#7f787b" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Orders" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="35.0" left="45.0" right="45.0" top="25.0" />
+                                 </padding>
+                              </VBox>
+                              <Separator maxHeight="140.0" orientation="VERTICAL" />
+                              <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" minWidth="220.0">
+                                 <children>
+                                    <Label style="-fx-font-weight: 700;" text="00" textFill="#554f51">
+                                       <font>
+                                          <Font size="95.0" />
+                                       </font>
+                                    </Label>
+                                    <Text fill="#7f787b" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Revenue of Orders (LKR)" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="35.0" left="45.0" right="45.0" top="25.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </HBox>
+                        <VBox alignment="CENTER" maxWidth="300.0" minWidth="220.0" style="-fx-background-color: fff; -fx-background-radius: 10;">
+                           <children>
+                              <Label style="-fx-font-weight: 700;" text="00" textFill="#554f51">
+                                 <font>
+                                    <Font size="95.0" />
+                                 </font>
+                              </Label>
+                              <Text fill="#7f787b" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Suppliers" />
+                           </children>
+                           <padding>
+                              <Insets bottom="30.0" left="45.0" right="45.0" top="20.0" />
+                           </padding>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <VBox maxHeight="430.0" maxWidth="730.0" style="-fx-background-color: #FFF; -fx-background-radius: 10;">
+                     <children>
+                        <Text fill="#554f51" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" styleClass="poppins" text="Users">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" />
+                           </VBox.margin>
+                        </Text>
+                        <TableView>
+                          <columns>
+                            <TableColumn maxWidth="-1.0" minWidth="50.0" prefWidth="-1.0" sortable="false" styleClass="table-header">
+                                 <graphic>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="#" />
+                                 </graphic>
+                              </TableColumn>
+                            <TableColumn maxWidth="-1.0" minWidth="139.0" prefWidth="-1.0" styleClass="table-header">
+                                 <graphic>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Employee ID" />
+                                 </graphic>
+                              </TableColumn>
+                              <TableColumn maxWidth="-1.0" minWidth="250.0" prefWidth="-1.0" style="-fx-text-fill: fff;" styleClass="table-header">
+                                 <graphic>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Name" />
+                                 </graphic>
+                              </TableColumn>
+                              <TableColumn maxWidth="-1.0" minWidth="255.0" prefWidth="-1.0" resizable="false" styleClass="table-header">
+                                 <graphic>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Email Address" />
+                                 </graphic>
+                              </TableColumn>
+                          </columns>
+                        </TableView>
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </VBox>
+               </children>
+               <BorderPane.margin>
+                  <Insets left="40.0" right="40.0" top="40.0" />
+               </BorderPane.margin>
+            </VBox>
+         </center>
+         <right>
+            <VBox styleClass="border-left" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox style="-fx-background-color: #fff; -fx-background-radius: 10;">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <children>
+                        <ImageView fitHeight="133.0" fitWidth="133.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/User.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets right="30.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <VBox minWidth="240.0">
+                           <children>
+                              <Text fill="#353233" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" styleClass="poppins" text="Admin">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="#554f51" layoutX="10.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="poppins" text="Example Name">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Text>
+                              <Text fill="#7f787b" layoutX="10.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="poppins" text="example@gmail.com">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="#7f787b" layoutX="10.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="poppins" text="Reset Password" underline="true">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Text>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="30.0" left="40.0" right="30.0" top="30.0" />
+                     </padding>
+                  </HBox>
+                  <VBox prefHeight="709.0" prefWidth="477.0" style="-fx-background-color: #fff; -fx-background-radius: 10;">
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                     <children>
+                        <Text fill="#554f51" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700;" styleClass="poppins" text="Recent Logs">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" />
+                           </VBox.margin>
+                        </Text>
+                        <TableView prefHeight="653.0" prefWidth="437.0">
+                           <columns>
+                              <TableColumn maxWidth="50.0" minWidth="45.0" prefWidth="-1.0" sortable="false" styleClass="table-header">
+                                 <graphic>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="#" />
+                                 </graphic>
+                              </TableColumn>
+                              <TableColumn maxWidth="134.0" minWidth="121.0" prefWidth="131.0" styleClass="table-header">
+                                 <graphic>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Employee ID" />
+                                 </graphic>
+                              </TableColumn>
+                              <TableColumn maxWidth="281.0" minWidth="250.0" prefWidth="259.0" style="-fx-text-fill: fff;" styleClass="table-header">
+                                 <graphic>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Date and Time" />
+                                 </graphic>
+                              </TableColumn>
+                           </columns>
+                        </TableView>
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
+               <BorderPane.margin>
+                  <Insets bottom="20.0" top="20.0" />
+               </BorderPane.margin>
+            </VBox>
+         </right>
+      </BorderPane>
+   </center>
+   <right>
+      <Pane BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="20.0" right="50.0" top="30.0" />
+         </BorderPane.margin>
+      </Pane>
+   </right>
+</BorderPane>
