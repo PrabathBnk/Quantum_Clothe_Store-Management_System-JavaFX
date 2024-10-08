@@ -16,9 +16,34 @@
 .table-header{
     -fx-text-fill: "white";
     -fx-background-color: "7F787B";
+    -fx-border-color: "transparent" "fff" "transparent" "transparent";
+    -fx-border-width: 0 1px 0 0;
 }
 
 .border-left{
     -fx-border-color: "transparent" "transparent" "transparent" "BFBABC";
     -fx-border-width: 0 0 0 1px;
+}
+
+.primary-btn{
+    -fx-font-weight: 700;
+    -fx-text-fill: "white";
+    -fx-background-color: "D82B5C";
+    -fx-border-radius: 8;
+}
+
+.border-btn{
+    -fx-font-weight: 700;
+    -fx-text-fill: "D82B5C";
+    -fx-background-color: "transparent";
+    -fx-border-color: "D82B5C";
+    -fx-border-radius: 8;
+}
+
+.close-btn:hover{
+    -fx-opacity: 1;
+}
+
+.link:hover{
+    -fx-opacity: 1;
 }

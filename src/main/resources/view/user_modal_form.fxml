@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane fx:id="mainLayout" style="-fx-background-color: fff;" styleClass="poppins" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.user.UserModalFormController">
+   <top>
+      <HBox alignment="CENTER_LEFT" maxWidth="450.0" minWidth="400.0" style="-fx-background-color: D82B5C; -fx-background-radius: 8;">
+         <children>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 16;" text="User ID | " />
+            <Label style="-fx-font-weight: 700; -fx-font-size: 16;" text="E0001" textFill="WHITE" />
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="15.0" right="15.0" top="5.0" />
+         </padding>
+         <BorderPane.margin>
+            <Insets left="40.0" />
+         </BorderPane.margin>
+      </HBox>
+   </top>
+   <padding>
+      <Insets bottom="40.0" right="47.0" top="40.0" />
+   </padding>
+   <center>
+      <GridPane minWidth="520.0" vgap="4.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="235.0" minWidth="150.0" prefWidth="156.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="337.0" minWidth="10.0" prefWidth="324.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <BorderPane.margin>
+            <Insets bottom="20.0" left="50.0" top="20.0" />
+         </BorderPane.margin>
+         <children>
+            <Text fill="#554f51" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700; -fx-font-size: 12;" text="Name" GridPane.valignment="BOTTOM" />
+            <Text fill="#554f51" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700; -fx-font-size: 12;" text="Email Address" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+            <Label text="Example Name" GridPane.columnIndex="1" GridPane.valignment="BOTTOM" />
+            <Label text="example@gmail.com" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+         </children>
+         <padding>
+            <Insets left="20.0" right="20.0" />
+         </padding>
+      </GridPane>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER_RIGHT" spacing="20.0" BorderPane.alignment="CENTER">
+         <children>
+            <JFXButton layoutX="10.0" layoutY="10.0" minWidth="120.0" prefHeight="25.0" prefWidth="166.0" style="-fx-background-color: FEE5E9;" text="Delete" textFill="#d82b5c" />
+         </children>
+         <BorderPane.margin>
+            <Insets top="20.0" />
+         </BorderPane.margin>
+         <padding>
+            <Insets right="20.0" />
+         </padding>
+      </HBox>
+   </bottom>
+   <effect>
+      <DropShadow offsetY="2.0">
+         <color>
+            <Color red="0.42105263471603394" green="0.42105263471603394" blue="0.42105263471603394" opacity="0.3700000047683716" />
+         </color>
+      </DropShadow>
+   </effect>
+</BorderPane>
