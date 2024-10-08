@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane style="-fx-background-color: #fff;" styleClass="poppins" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.product.AddProductFormController">
+   <top>
+      <VBox>
+         <children>
+            <Text fill="#353233" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20; -fx-font-weight: 700;" text="Add New Product" />
+            <Line endX="325.0" startX="-100.0" stroke="#ea496e" strokeWidth="5.0" />
+            <HBox alignment="CENTER_LEFT">
+               <children>
+                  <Text fill="#7f787b" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 15;" text="Product ID | " />
+                  <Label style="-fx-font-size: 15; -fx-font-weight: 700;" text="P0001" textFill="#d82b5c" />
+               </children>
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+   </top>
+   <padding>
+      <Insets bottom="40.0" left="40.0" right="40.0" top="30.0" />
+   </padding>
+   <center>
+      <GridPane minWidth="600.0" prefHeight="378.0" prefWidth="587.0" vgap="10.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="158.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="447.0" minWidth="10.0" prefWidth="442.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Text fill="#554f51" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700; -fx-font-size: 14;" text="Name" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
+            <Text fill="#554f51" layoutX="10.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700; -fx-font-size: 14;" text="Category" GridPane.rowIndex="3" GridPane.valignment="BOTTOM" />
+            <Text fill="#554f51" layoutX="10.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700; -fx-font-size: 14;" text="Price" GridPane.rowIndex="4" GridPane.valignment="BOTTOM" />
+            <JFXTextField focusColor="#d82b5c" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <JFXTextField focusColor="#d82b5c" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <JFXComboBox minWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Text fill="#554f51" layoutX="10.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700; -fx-font-size: 14;" text="Size" GridPane.rowIndex="5" GridPane.valignment="BOTTOM" />
+            <Text fill="#554f51" layoutX="10.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700; -fx-font-size: 14;" text="Quantity" GridPane.rowIndex="6" GridPane.valignment="BOTTOM" />
+            <JFXTextField focusColor="#d82b5c" layoutX="168.0" layoutY="103.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <JFXTextField focusColor="#d82b5c" layoutX="168.0" layoutY="148.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <VBox alignment="CENTER" maxHeight="158.0" maxWidth="158.0" prefHeight="158.0" prefWidth="158.0" GridPane.rowIndex="1">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #000;">
+                     <image>
+                        <Image url="@../img/Product.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </VBox>
+            <Label opacity="0.6" styleClass="link" text="Change product image" textFill="#554f51" underline="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <GridPane.margin>
+                  <Insets left="30.0" />
+               </GridPane.margin>
+            </Label>
+         </children>
+         <BorderPane.margin>
+            <Insets left="20.0" top="10.0" />
+         </BorderPane.margin>
+      </GridPane>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER_RIGHT" BorderPane.alignment="CENTER">
+         <children>
+            <JFXButton prefHeight="25.0" prefWidth="171.0" styleClass="primary-btn" text="Add Product" />
+         </children>
+         <BorderPane.margin>
+            <Insets top="30.0" />
+         </BorderPane.margin>
+      </HBox>
+   </bottom>
+</BorderPane>
