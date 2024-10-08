@@ -13,8 +13,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Text?>
 
-
-<BorderPane styleClass="poppins" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.employee.AddEmployeeFormController">
+<BorderPane style="-fx-background-color: #fff;" styleClass="poppins" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.employee.AddEmployeeFormController">
    <top>
       <VBox>
          <children>
@@ -50,9 +49,9 @@
             <Text fill="#554f51" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700; -fx-font-size: 14;" text="Name" GridPane.valignment="BOTTOM" />
             <Text fill="#554f51" layoutX="10.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700; -fx-font-size: 14;" text="Email Address" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
             <Text fill="#554f51" layoutX="10.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700; -fx-font-size: 14;" text="Contact" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
-            <JFXTextField GridPane.columnIndex="1" />
-            <JFXTextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <JFXTextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <JFXTextField focusColor="#d82b5c" GridPane.columnIndex="1" />
+            <JFXTextField focusColor="#d82b5c" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <JFXTextField focusColor="#d82b5c" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
          <BorderPane.margin>
             <Insets left="20.0" top="10.0" />
