@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
@@ -35,51 +36,88 @@
       <Insets bottom="40.0" right="47.0" top="40.0" />
    </padding>
    <center>
-      <GridPane minWidth="520.0" vgap="4.0" BorderPane.alignment="CENTER">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="235.0" minWidth="150.0" prefWidth="156.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="337.0" minWidth="10.0" prefWidth="324.0" />
-        </columnConstraints>
-        <rowConstraints>
-            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
+      <VBox BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="20.0" left="50.0" top="20.0" />
          </BorderPane.margin>
          <children>
-            <Text fill="#554f51" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700; -fx-font-size: 12;" text="Name" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
-            <Text fill="#554f51" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700; -fx-font-size: 12;" text="Price" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
-            <Text fill="#554f51" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700; -fx-font-size: 12;" text="Size" GridPane.rowIndex="3" GridPane.valignment="BOTTOM" />
-            <JFXTextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <JFXTextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <JFXTextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Text fill="#554f51" layoutX="30.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700; -fx-font-size: 12;" text="Quantity" GridPane.rowIndex="4" GridPane.valignment="BOTTOM" />
-            <Text fill="#554f51" layoutX="30.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700; -fx-font-size: 12;" text="Category" GridPane.rowIndex="5" GridPane.valignment="BOTTOM" />
-            <JFXTextField layoutX="186.0" layoutY="81.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <JFXTextField layoutX="186.0" layoutY="115.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <VBox alignment="CENTER" prefHeight="156.0" prefWidth="156.0" GridPane.halignment="CENTER">
+            <GridPane minWidth="520.0" vgap="4.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="235.0" minWidth="150.0" prefWidth="156.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="337.0" minWidth="10.0" prefWidth="324.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
                <children>
-                  <ImageView fitHeight="135.0" fitWidth="135.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-radius: 50;" />
+                  <Text fill="#554f51" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700; -fx-font-size: 12;" text="Name" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+                  <Text fill="#554f51" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700; -fx-font-size: 12;" text="Price" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
+                  <Text fill="#554f51" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700; -fx-font-size: 12;" text="Size" GridPane.rowIndex="3" GridPane.valignment="BOTTOM" />
+                  <JFXTextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <JFXTextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <JFXTextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Text fill="#554f51" layoutX="30.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700; -fx-font-size: 12;" text="Quantity" GridPane.rowIndex="4" GridPane.valignment="BOTTOM" />
+                  <Text fill="#554f51" layoutX="30.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700; -fx-font-size: 12;" text="Category" GridPane.rowIndex="5" GridPane.valignment="BOTTOM" />
+                  <JFXTextField layoutX="186.0" layoutY="81.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <JFXTextField layoutX="186.0" layoutY="115.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <VBox alignment="CENTER" prefHeight="156.0" prefWidth="156.0" GridPane.halignment="CENTER">
+                     <children>
+                        <ImageView fitHeight="135.0" fitWidth="135.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-radius: 50;" />
+                     </children>
+                  </VBox>
+                  <Label opacity="0.6" styleClass="link" text="Change product image" textFill="#554f51" underline="true" GridPane.columnIndex="1">
+                     <GridPane.margin>
+                        <Insets left="30.0" />
+                     </GridPane.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Label>
                </children>
-            </VBox>
-            <Label opacity="0.6" styleClass="link" text="Change product image" textFill="#554f51" underline="true" GridPane.columnIndex="1">
-               <GridPane.margin>
-                  <Insets left="30.0" />
-               </GridPane.margin>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Label>
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+            </GridPane>
+            <HBox styleClass="border-bottom">
+               <VBox.margin>
+                  <Insets left="10.0" right="18.0" top="30.0" />
+               </VBox.margin>
+               <children>
+                  <Text fill="#7f787b" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700; -fx-font-size: 14;" text="Supplier Details" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" />
+               </padding>
+            </HBox>
+            <GridPane layoutX="10.0" layoutY="10.0" minWidth="520.0" vgap="4.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="235.0" minWidth="150.0" prefWidth="156.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="337.0" minWidth="10.0" prefWidth="324.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Text fill="#554f51" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700; -fx-font-size: 12;" text="Supplier ID" GridPane.valignment="BOTTOM" />
+                  <Text fill="#554f51" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700; -fx-font-size: 12;" text="Supplier Name" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+                  <JFXComboBox maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" />
+                  <Text fill="#554f51" layoutX="30.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 12;" text="Example Supplier Name" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+               </children>
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </GridPane>
          </children>
-         <padding>
-            <Insets left="20.0" right="20.0" />
-         </padding>
-      </GridPane>
+      </VBox>
    </center>
    <bottom>
       <HBox alignment="CENTER_RIGHT" spacing="20.0" BorderPane.alignment="CENTER">

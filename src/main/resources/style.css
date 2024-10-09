@@ -47,3 +47,8 @@
 .link:hover{
     -fx-opacity: 1;
 }
+
+.border-bottom{
+    -fx-border-color: "transparent" "transparent" "D82B5C" "transparent";
+    -fx-border-width: 0 0 2px 0;
+}
