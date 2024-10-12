@@ -1,10 +1,9 @@
 package edu.icet.service.custom.impl;
 
+import edu.icet.dto.CreateAccountDto;
 import edu.icet.dto.LoginDto;
-import edu.icet.dto.UserDto;
 import edu.icet.entity.User;
 import edu.icet.repository.DaoFactory;
-import edu.icet.repository.SuperDao;
 import edu.icet.repository.custom.EmployeeDao;
 import edu.icet.repository.custom.UserDao;
 import edu.icet.service.custom.UserService;
@@ -13,18 +12,17 @@ import javafx.scene.control.Alert;
 
 public class UserServiceImpl implements UserService {
 
+    private final UserDao userDao = DaoFactory.getInstance().getDao(DaoType.USER);
+
     @Override
     public boolean authenticateUser(LoginDto loginDto) {
-        EmployeeDao employeeDao = DaoFactory.getInstance().getDao(DaoType.EMPLOYEE);
-        String employeeId = employeeDao.getEmployeeByEmail(loginDto.getEmail());
-
-        if(employeeId==null) {
-            new Alert(Alert.AlertType.ERROR, "Invalid Email Address!").show();
+        if(null==loginDto.getUserType()|| loginDto.getEmail().isEmpty() || loginDto.getPassword().isEmpty()) {
+            new Alert(Alert.AlertType.ERROR, "Make sure all fields are filled!").show();
             return false;
         }
 
-        UserDao userDao = DaoFactory.getInstance().getDao(DaoType.USER);
-        User user = userDao.getUserById(employeeId);
+
+        User user = userDao.getUserByEmployeeId(getEmployeeIdIfValidEmail(loginDto.getEmail()));
 
         if(user==null) {
             new Alert(Alert.AlertType.ERROR, "There is no registered user found for this email address!").show();
@@ -39,4 +37,44 @@ public class UserServiceImpl implements UserService {
 
         return true;
     }
+
+    @Override
+    public boolean createUserAccount(CreateAccountDto createAccountDto) {
+        if(null==createAccountDto.getUserType() || createAccountDto.getEmail().isEmpty() || createAccountDto.getPassword().isEmpty() || createAccountDto.getConfirmPassword().isEmpty()) {
+            new Alert(Alert.AlertType.ERROR, "Make sure all fields are filled!").show();
+            return false;
+        }
+
+        if (!createAccountDto.getPassword().equals(createAccountDto.getConfirmPassword())) {
+            new Alert(Alert.AlertType.ERROR, "Passwords are not matching!").show();
+            return false;
+        }
+
+        User user = userDao.getUserByEmployeeId(getEmployeeIdIfValidEmail(createAccountDto.getEmail()));
+
+        if(user==null) {
+            new Alert(Alert.AlertType.ERROR, "There is no registered user found for this email address!").show();
+            return false;
+        } else if (!user.getPassword().isEmpty()) {
+            new Alert(Alert.AlertType.ERROR, "This user has already created account!").show();
+            return false;
+        }
+
+        user.setPassword(createAccountDto.getPassword());
+        userDao.update(user);
+        return true;
+    }
+
+    private String getEmployeeIdIfValidEmail(String email){
+        EmployeeDao employeeDao = DaoFactory.getInstance().getDao(DaoType.EMPLOYEE);
+        String employeeId = employeeDao.getEmployeeByEmail(email);
+
+        if(null == employeeDao.getEmployeeByEmail(email)) {
+            new Alert(Alert.AlertType.ERROR, "Invalid Email Address!").show();
+            return null;
+        }
+
+        return employeeId;
+    }
+
 }

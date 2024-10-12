@@ -3,6 +3,7 @@ package edu.icet.controller;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import edu.icet.dto.CreateAccountDto;
 import edu.icet.dto.LoginDto;
 import edu.icet.dto.UserDto;
 import edu.icet.service.ServiceFactory;
@@ -16,6 +17,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -63,6 +65,8 @@ public class LoginFormController implements Initializable {
     @FXML
     private JFXPasswordField txtPasswordCreateAccount;
 
+    private final UserService service = ServiceFactory.getInstance().getService(ServiceType.USER);
+
     @FXML
     void btnBackOnAction(ActionEvent event) {
         createAccountPane.setVisible(false);
@@ -72,12 +76,22 @@ public class LoginFormController implements Initializable {
 
     @FXML
     void btnCreateAccountOnAction(ActionEvent event) {
+        CreateAccountDto createAccountDto = new CreateAccountDto(
+                txtEmailCreateAccount.getText(),
+                txtPasswordCreateAccount.getText(),
+                txtConfirmPassword.getText(),
+                cmbAccountTypeCreateAccount.getValue()
+        );
 
+        if (service.createUserAccount(createAccountDto)) {
+            new Alert(Alert.AlertType.INFORMATION, "User account created successfully!").showAndWait();
+            createAccountPane.setVisible(false);
+            loginPane.setVisible(true);
+        }
     }
 
     @FXML
     void btnLoginOnAction(ActionEvent event) {
-        UserService service = ServiceFactory.getInstance().getService(ServiceType.USER);
         boolean authenticated = service.authenticateUser(new LoginDto(txtEmail.getText(), txtPassword.getText(), cmbAccountType.getValue()));
 
         if(authenticated){

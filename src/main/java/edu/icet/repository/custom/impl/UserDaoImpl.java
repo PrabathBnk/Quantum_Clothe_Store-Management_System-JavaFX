@@ -14,7 +14,7 @@ import java.sql.SQLException;
 public class UserDaoImpl implements UserDao {
 
     @Override
-    public User getUserById(String id) {
+    public User getUserByEmployeeId(String id) {
         String SQL = "SELECT * FROM User WHERE EmployeeId=?";
         try {
             Connection connection = DBConnection.getInstance().getConnection();
@@ -33,5 +33,15 @@ public class UserDaoImpl implements UserDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public boolean update(User user) {
+        Session session = HibernateUtil.getSession();
+        session.beginTransaction();
+        session.persist(user);
+        session.getTransaction().commit();
+
+        return true;
     }
 }

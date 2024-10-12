@@ -25,4 +25,9 @@ public class EmployeeDaoImpl implements EmployeeDao {
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public boolean update(Employee employee) {
+        return false;
+    }
 }
