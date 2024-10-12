@@ -52,3 +52,10 @@
     -fx-border-color: "transparent" "transparent" "D82B5C" "transparent";
     -fx-border-width: 0 0 2px 0;
 }
+
+.btn-quick-access{
+    -fx-font-weight: 700;
+    -fx-font-size: 18;
+    -fx-border-color: "#554F51";
+    -fx-border-radius: 8;
+}
