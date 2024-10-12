@@ -13,8 +13,8 @@ import java.io.Serializable;
 @NoArgsConstructor
 @EqualsAndHashCode
 @Embeddable
-public class UserID implements Serializable {
+public class UserCompID implements Serializable {
 
-    private String employee;
-    private String user;
+    private String employeeID;
+    private String userID;
 }

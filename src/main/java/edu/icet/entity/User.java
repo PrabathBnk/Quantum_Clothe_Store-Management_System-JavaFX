@@ -1,6 +1,6 @@
 package edu.icet.entity;
 
-import edu.icet.util.UserID;
+import edu.icet.util.UserCompID;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.IdClass;
@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@IdClass(UserID.class)
+@IdClass(UserCompID.class)
 public class User {
     @Id
     private String employeeID;

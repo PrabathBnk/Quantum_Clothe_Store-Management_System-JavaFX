@@ -39,7 +39,7 @@ public class UserDaoImpl implements UserDao {
     public boolean update(User user) {
         Session session = HibernateUtil.getSession();
         session.beginTransaction();
-        session.persist(user);
+        session.merge(user);
         session.getTransaction().commit();
 
         return true;

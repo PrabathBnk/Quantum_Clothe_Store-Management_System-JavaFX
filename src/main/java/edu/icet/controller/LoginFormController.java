@@ -103,7 +103,7 @@ public class LoginFormController implements Initializable {
                     LoadFontUtil.loadFontToScene(scene);
                     stage.setScene(scene);
                 } else {
-                    Scene scene = new Scene(FXMLLoader.load(getClass().getResource("../../view/general_dashboard.fxml")));
+                    Scene scene = new Scene(FXMLLoader.load(getClass().getResource("../../../view/general_dashboard.fxml")));
                     LoadFontUtil.loadFontToScene(scene);
                     stage.setScene(scene);
                 }

@@ -8,6 +8,7 @@ import edu.icet.repository.custom.EmployeeDao;
 import edu.icet.repository.custom.UserDao;
 import edu.icet.service.custom.UserService;
 import edu.icet.util.DaoType;
+import edu.icet.util.PasswordUtil;
 import javafx.scene.control.Alert;
 
 public class UserServiceImpl implements UserService {
@@ -27,10 +28,10 @@ public class UserServiceImpl implements UserService {
         if(user==null) {
             new Alert(Alert.AlertType.ERROR, "There is no registered user found for this email address!").show();
             return false;
-        } else if (user.getPassword().isEmpty()) {
+        } else if (null==user.getPassword()) {
             new Alert(Alert.AlertType.ERROR, "There is no user account found for this email address! Please create an account.").show();
             return false;
-        } else if (!user.getUserType().equals(loginDto.getUserType()) || !user.getPassword().equals(loginDto.getPassword())) {
+        } else if (!user.getUserType().equals(loginDto.getUserType()) || !PasswordUtil.checkPassword(loginDto.getPassword(), user.getPassword())) {
             new Alert(Alert.AlertType.ERROR, "Something went wrong! Check whether your credentials are correct.").show();
             return false;
         }
@@ -50,17 +51,22 @@ public class UserServiceImpl implements UserService {
             return false;
         }
 
-        User user = userDao.getUserByEmployeeId(getEmployeeIdIfValidEmail(createAccountDto.getEmail()));
+        String employeeId = getEmployeeIdIfValidEmail(createAccountDto.getEmail());
+        if (null==employeeId) return false;
+        User user = userDao.getUserByEmployeeId(employeeId);
 
         if(user==null) {
             new Alert(Alert.AlertType.ERROR, "There is no registered user found for this email address!").show();
             return false;
-        } else if (!user.getPassword().isEmpty()) {
+        } else if (null!=user.getPassword()) {
             new Alert(Alert.AlertType.ERROR, "This user has already created account!").show();
             return false;
+        } else if (!user.getUserType().equals(createAccountDto.getUserType())) {
+            new Alert(Alert.AlertType.ERROR, "Incorrect account type!").show();
+            return false;
         }
-
-        user.setPassword(createAccountDto.getPassword());
+        System.out.println(user);
+        user.setPassword(PasswordUtil.encryptPassword(createAccountDto.getPassword()));
         userDao.update(user);
         return true;
     }
