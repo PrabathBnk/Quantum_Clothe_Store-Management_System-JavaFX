@@ -10,6 +10,7 @@ import edu.icet.service.custom.UserService;
 import edu.icet.util.DaoType;
 import edu.icet.util.PasswordUtil;
 import javafx.scene.control.Alert;
+import org.passay.*;
 
 public class UserServiceImpl implements UserService {
 
@@ -41,8 +42,23 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean createUserAccount(CreateAccountDto createAccountDto) {
+
         if(null==createAccountDto.getUserType() || createAccountDto.getEmail().isEmpty() || createAccountDto.getPassword().isEmpty() || createAccountDto.getConfirmPassword().isEmpty()) {
             new Alert(Alert.AlertType.ERROR, "Make sure all fields are filled!").show();
+            return false;
+        }
+
+        PasswordValidator passwordValidator = new PasswordValidator(
+                new LengthRule(8,16),
+                new CharacterRule(EnglishCharacterData.UpperCase, 1),
+                new CharacterRule(EnglishCharacterData.LowerCase, 1),
+                new CharacterRule(EnglishCharacterData.Digit, 1),
+                new CharacterRule(EnglishCharacterData.Special, 1),
+                new WhitespaceRule()
+        );
+
+        if (!passwordValidator.validate(new PasswordData(createAccountDto.getPassword())).isValid()) {
+            new Alert(Alert.AlertType.ERROR, "Passwords is not valid!").show();
             return false;
         }
 
@@ -65,7 +81,7 @@ public class UserServiceImpl implements UserService {
             new Alert(Alert.AlertType.ERROR, "Incorrect account type!").show();
             return false;
         }
-        System.out.println(user);
+
         user.setPassword(PasswordUtil.encryptPassword(createAccountDto.getPassword()));
         userDao.update(user);
         return true;
