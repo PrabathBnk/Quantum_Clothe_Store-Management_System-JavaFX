@@ -8,6 +8,7 @@ import edu.icet.dto.LoginDto;
 import edu.icet.service.ServiceFactory;
 import edu.icet.service.custom.UserService;
 import edu.icet.util.LoadFontUtil;
+import edu.icet.util.SceneSwitcher;
 import edu.icet.util.ServiceType;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -98,19 +99,10 @@ public class LoginFormController implements Initializable {
         if(authenticated){
             Stage stage = (Stage) mainPane.getScene().getWindow();
 
-            try {
-                if (cmbAccountType.getValue().equals("Admin")) {
-                    Scene scene = new Scene(FXMLLoader.load(getClass().getResource("../../../view/admin_dashboard.fxml")));
-                    LoadFontUtil.loadFontToScene(scene);
-                    stage.setScene(scene);
-                } else {
-                    Scene scene = new Scene(FXMLLoader.load(getClass().getResource("../../../view/general_dashboard.fxml")));
-                    LoadFontUtil.loadFontToScene(scene);
-                    stage.setScene(scene);
-                }
-
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+            if ("Admin".equals(cmbAccountType.getValue())) {
+                SceneSwitcher.switchSceneTo(stage, "../../../view/admin_dashboard.fxml");
+            } else {
+                SceneSwitcher.switchSceneTo(stage, "../../../view/general_dashboard.fxml");
             }
 
         }

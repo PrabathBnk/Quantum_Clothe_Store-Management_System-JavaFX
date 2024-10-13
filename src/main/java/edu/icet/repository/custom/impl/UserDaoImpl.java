@@ -49,4 +49,9 @@ public class UserDaoImpl implements UserDao {
     public boolean save(User user) {
         return false;
     }
+
+    @Override
+    public Integer countAll() {
+        return 0;
+    }
 }

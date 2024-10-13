@@ -35,4 +35,9 @@ public class EmployeeDaoImpl implements EmployeeDao {
     public boolean save(Employee employee) {
         return false;
     }
+
+    @Override
+    public Integer countAll() {
+        return 0;
+    }
 }

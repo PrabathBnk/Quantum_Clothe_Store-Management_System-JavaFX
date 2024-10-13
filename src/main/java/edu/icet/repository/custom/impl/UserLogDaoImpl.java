@@ -21,4 +21,9 @@ public class UserLogDaoImpl implements UserLogDao {
 
         return true;
     }
+
+    @Override
+    public Integer countAll() {
+        return 0;
+    }
 }
