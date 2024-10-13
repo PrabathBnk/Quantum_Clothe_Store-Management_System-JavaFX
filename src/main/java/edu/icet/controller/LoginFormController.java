@@ -5,7 +5,6 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import edu.icet.dto.CreateAccountDto;
 import edu.icet.dto.LoginDto;
-import edu.icet.dto.UserDto;
 import edu.icet.service.ServiceFactory;
 import edu.icet.service.custom.UserService;
 import edu.icet.util.LoadFontUtil;
@@ -18,6 +17,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -38,6 +38,7 @@ public class LoginFormController implements Initializable {
     public JFXTextField txtEmailConfirmUser;
     public VBox confirmUserPane;
     public JFXPasswordField txtConfirmPassword;
+
     @FXML
     private JFXComboBox<String> cmbAccountType;
 
@@ -139,13 +140,22 @@ public class LoginFormController implements Initializable {
     }
 
     public void btnConfirmOnAction(ActionEvent actionEvent) {
-        otpConfirmPane.setVisible(false);
-        resetPasswordPane.setVisible(true);
+
+        if (service.verifyOTP(txtOTP.getText())) {
+            otpConfirmPane.setVisible(false);
+            resetPasswordPane.setVisible(true);
+        }
     }
 
     public void btnSendOTPOnAction(ActionEvent actionEvent) {
-        confirmUserPane.setVisible(false);
-        otpConfirmPane.setVisible(true);
+
+        if (service.sendOTPToUser(txtEmailConfirmUser.getText())) {
+            confirmUserPane.setVisible(false);
+            otpConfirmPane.setVisible(true);
+
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Something went wrong!").show();
+        }
     }
 
     public void btnConfirmOTPBackOnAction(ActionEvent actionEvent) {
@@ -154,5 +164,22 @@ public class LoginFormController implements Initializable {
     }
 
     public void btnResetPasswordOnAction(ActionEvent actionEvent) {
+
+        boolean isPasswordUpdated = service.updatePassword(txtEmailConfirmUser.getText(), txtPasswordResetPwd.getText(), txtConfirmPasswordResetPwd.getText());
+
+        if (isPasswordUpdated) {
+            new Alert(Alert.AlertType.INFORMATION, "Password updated successfully!").showAndWait();
+            resetPasswordPane.setVisible(false);
+            loginPane.setVisible(true);
+        }
+    }
+
+    public void lblResendOtpOnClick(MouseEvent mouseEvent) {
+
+        if (service.sendOTPToUser(txtEmailConfirmUser.getText())) {
+            new Alert(Alert.AlertType.INFORMATION, "New OTP Sent!").show();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Something went wrong!").show();
+        }
     }
 }
