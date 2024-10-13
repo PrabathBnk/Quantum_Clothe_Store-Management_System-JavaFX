@@ -2,6 +2,7 @@ package edu.icet.repository;
 
 import edu.icet.repository.custom.impl.EmployeeDaoImpl;
 import edu.icet.repository.custom.impl.UserDaoImpl;
+import edu.icet.repository.custom.impl.UserLogDaoImpl;
 import edu.icet.util.DaoType;
 
 public class DaoFactory {
@@ -17,6 +18,7 @@ public class DaoFactory {
         switch (type) {
             case EMPLOYEE: return  (T) new EmployeeDaoImpl();
             case USER: return (T) new UserDaoImpl();
+            case USERLOG: return (T) new UserLogDaoImpl();
             default: return null;
         }
     }

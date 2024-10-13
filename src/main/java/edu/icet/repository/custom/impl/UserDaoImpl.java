@@ -44,4 +44,9 @@ public class UserDaoImpl implements UserDao {
 
         return true;
     }
+
+    @Override
+    public boolean save(User user) {
+        return false;
+    }
 }

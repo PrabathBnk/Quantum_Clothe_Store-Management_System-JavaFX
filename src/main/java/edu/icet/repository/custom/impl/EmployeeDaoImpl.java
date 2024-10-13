@@ -30,4 +30,9 @@ public class EmployeeDaoImpl implements EmployeeDao {
     public boolean update(Employee employee) {
         return false;
     }
+
+    @Override
+    public boolean save(Employee employee) {
+        return false;
+    }
 }

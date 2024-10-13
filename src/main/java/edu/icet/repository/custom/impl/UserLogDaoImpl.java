@@ -1,0 +1,24 @@
+package edu.icet.repository.custom.impl;
+
+import edu.icet.entity.UserLog;
+import edu.icet.repository.custom.UserLogDao;
+import edu.icet.util.HibernateUtil;
+import org.hibernate.Session;
+
+public class UserLogDaoImpl implements UserLogDao {
+    @Override
+    public boolean update(UserLog userLog) {
+        return false;
+    }
+
+    @Override
+    public boolean save(UserLog userLog) {
+        Session session = HibernateUtil.getSession();
+        session.beginTransaction();
+        session.persist(userLog);
+        session.getTransaction().commit();
+        session.close();
+
+        return true;
+    }
+}

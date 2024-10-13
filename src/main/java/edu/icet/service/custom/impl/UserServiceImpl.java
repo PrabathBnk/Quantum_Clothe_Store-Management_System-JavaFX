@@ -3,9 +3,11 @@ package edu.icet.service.custom.impl;
 import edu.icet.dto.CreateAccountDto;
 import edu.icet.dto.LoginDto;
 import edu.icet.entity.User;
+import edu.icet.entity.UserLog;
 import edu.icet.repository.DaoFactory;
 import edu.icet.repository.custom.EmployeeDao;
 import edu.icet.repository.custom.UserDao;
+import edu.icet.repository.custom.UserLogDao;
 import edu.icet.service.custom.UserService;
 import edu.icet.util.DaoType;
 import edu.icet.util.EmailSenderUtil;
@@ -13,6 +15,8 @@ import edu.icet.util.OTPUtil;
 import edu.icet.util.PasswordUtil;
 import javafx.scene.control.Alert;
 import org.passay.*;
+
+import java.time.LocalDateTime;
 
 public class UserServiceImpl implements UserService {
 
@@ -37,7 +41,8 @@ public class UserServiceImpl implements UserService {
             return false;
         }
 
-        return true;
+        UserLogDao userLogDao = DaoFactory.getInstance().getDao(DaoType.USERLOG);
+        return userLogDao.save(new UserLog(user.getUserID(), LocalDateTime.now()));
     }
 
     @Override

@@ -2,5 +2,6 @@ package edu.icet.util;
 
 public enum DaoType {
     EMPLOYEE,
-    USER
+    USER,
+    USERLOG
 }
