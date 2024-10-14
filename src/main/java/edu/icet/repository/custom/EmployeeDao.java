@@ -10,4 +10,5 @@ public interface EmployeeDao extends CrudDao<Employee> {
     Employee getEmployeeById(String id);
     List<Employee> getAll();
     boolean delete(Employee employee);
+    String getLastEmployeeID();
 }

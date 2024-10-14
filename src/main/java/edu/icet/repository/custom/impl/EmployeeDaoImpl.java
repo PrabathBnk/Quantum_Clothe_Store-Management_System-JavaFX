@@ -65,6 +65,20 @@ public class EmployeeDaoImpl implements EmployeeDao {
     }
 
     @Override
+    public String getLastEmployeeID() {
+        String SQL = "SELECT EmployeeID FROM Employee ORDER BY EmployeeID DESC LIMIT 1";
+        try {
+            Connection connection = DBConnection.getInstance().getConnection();
+            PreparedStatement psTm = connection.prepareStatement(SQL);
+
+            ResultSet resultSet = psTm.executeQuery();
+            return resultSet.next() ? resultSet.getString("EmployeeID"): "EMP000";
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
     public boolean update(Employee employee) {
         try {
             Session session = HibernateUtil.getSession();
