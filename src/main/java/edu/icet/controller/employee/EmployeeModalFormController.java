@@ -5,20 +5,16 @@ import edu.icet.dto.EmployeeDto;
 import edu.icet.service.ServiceFactory;
 import edu.icet.service.custom.EmployeeService;
 import edu.icet.util.ServiceType;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableView;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class EmployeeModalFormController implements Initializable {
@@ -38,6 +34,18 @@ public class EmployeeModalFormController implements Initializable {
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
 
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Confirm to delete!");
+        alert.showAndWait();
+        if (alert.getResult().getButtonData().toString().equals("OK_DONE")) {
+            EmployeeService service = ServiceFactory.getInstance().getService(ServiceType.EMPLOYEE);
+            boolean isUserDeleted = service.deleteEmployee(EmployeeFormController.getEmployee());
+
+            if (isUserDeleted){
+                new Alert(Alert.AlertType.INFORMATION, "User deleted successfully!");
+                refreshEmployeeTable(event);
+                getStage(event).close();
+            }
+        }
     }
 
     @FXML
@@ -52,12 +60,8 @@ public class EmployeeModalFormController implements Initializable {
 
         if (isEmployeeUpdated) {
             new Alert(Alert.AlertType.INFORMATION, "Employee Updated Successfully!").showAndWait();
-            Node source = (Node) event.getSource();
-            Stage stage = (Stage) source.getScene().getWindow();
-            EmployeeFormController efc = (EmployeeFormController) stage.getUserData();
-            efc.getEmployeeTable().getSelectionModel().clearSelection();
-            efc.loadEmployeeTable();
-            stage.close();
+            refreshEmployeeTable(event);
+            getStage(event).close();
         }
     }
 
@@ -67,5 +71,16 @@ public class EmployeeModalFormController implements Initializable {
         txtName.setText(EmployeeFormController.getEmployee().getName());
         txtContact.setText(EmployeeFormController.getEmployee().getContact());
         txtEmail.setText(EmployeeFormController.getEmployee().getEmailAddress());
+    }
+
+    private Stage getStage(Event event) {
+        Node source = (Node) event.getSource();
+        return (Stage) source.getScene().getWindow();
+    }
+
+    private void refreshEmployeeTable(Event event){
+        EmployeeFormController efc = (EmployeeFormController) getStage(event).getUserData();
+        efc.getEmployeeTable().getSelectionModel().clearSelection();
+        efc.loadEmployeeTable();
     }
 }

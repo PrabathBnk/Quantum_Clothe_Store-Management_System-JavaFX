@@ -78,6 +78,12 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employeeDao.update(new ModelMapper().map(employeeDto, Employee.class));
     }
 
+    @Override
+    public boolean deleteEmployee(EmployeeDto employeeDto) {
+
+        return employeeDao.delete(new ModelMapper().map(employeeDto, Employee.class));
+    }
+
     private boolean isAllFieldsFilled(EmployeeDto employeeDto) {
         if (employeeDto.getName().isEmpty() || employeeDto.getEmailAddress().isEmpty() || employeeDto.getContact().isEmpty()) {
             new Alert(Alert.AlertType.ERROR, "Make sure to fill the fields!").show();

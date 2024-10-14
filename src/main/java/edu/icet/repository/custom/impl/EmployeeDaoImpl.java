@@ -55,6 +55,16 @@ public class EmployeeDaoImpl implements EmployeeDao {
     }
 
     @Override
+    public boolean delete(Employee employee) {
+        Session session = HibernateUtil.getSession();
+        session.beginTransaction();
+        session.remove(employee);
+        session.getTransaction().commit();
+        session.close();
+        return true;
+    }
+
+    @Override
     public boolean update(Employee employee) {
         try {
             Session session = HibernateUtil.getSession();
