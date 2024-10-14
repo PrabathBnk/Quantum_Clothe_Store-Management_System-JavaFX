@@ -2,7 +2,9 @@ package edu.icet.util;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 import java.io.IOException;
 
@@ -23,6 +25,21 @@ public class SceneSwitcher {
             Scene scene = new Scene(FXMLLoader.load(SceneSwitcher.class.getResource(path)));
             LoadFontUtil.loadFontToScene(scene);
             stage.setScene(scene);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void showModal(Window owner, String path) {
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.initOwner(owner);
+        try {
+            Scene scene = new Scene(FXMLLoader.load(SceneSwitcher.class.getResource(path)));
+            LoadFontUtil.loadFontToScene(scene);
+            stage.setResizable(false);
+            stage.setScene(scene);
+            stage.show();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

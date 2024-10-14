@@ -27,7 +27,7 @@
                   <Insets bottom="80.0" />
                </VBox.margin>
             </ImageView>
-            <JFXButton maxWidth="165.0" minHeight="50.0" onAction="#btnSlideBarDashboard" style="-fx-font-weight: 700; -fx-border-radius: 8; -fx-background-radius: 8;" styleClass="active-btn" text="Dashboard" textFill="#7f787b">
+            <JFXButton maxWidth="165.0" minHeight="50.0" onAction="#btnSlideBarDashboard" style="-fx-font-weight: 700; -fx-border-radius: 8; -fx-background-radius: 8;" styleClass="btn" text="Dashboard" textFill="#7f787b">
                <padding>
                   <Insets bottom="10.0" top="10.0" />
                </padding>
@@ -35,7 +35,7 @@
                   <Insets bottom="5.0" />
                </VBox.margin>
             </JFXButton>
-            <JFXButton layoutX="48.0" layoutY="192.0" maxWidth="165.0" minHeight="50.0" onAction="#btnSlideBarEmployee" style="-fx-font-weight: 700; -fx-border-radius: 8; -fx-background-radius: 8;" styleClass="btn" text="Employees" textFill="#7f787b">
+            <JFXButton layoutX="48.0" layoutY="192.0" maxWidth="165.0" minHeight="50.0" style="-fx-font-weight: 700; -fx-border-radius: 8; -fx-background-radius: 8;" styleClass="active-btn" text="Employees" textFill="#7f787b">
                <padding>
                   <Insets bottom="10.0" top="10.0" />
                </padding>
@@ -113,7 +113,7 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" maxHeight="800.0" minWidth="-Infinity" prefWidth="600.0">
                      <children>
-                        <JFXButton prefHeight="33.0" prefWidth="176.0" styleClass="primary-btn" text="Add New Employee" />
+                        <JFXButton onAction="#btnAddEmployeeOnAction" prefHeight="33.0" prefWidth="176.0" styleClass="primary-btn" text="Add New Employee" />
                      </children>
                      <padding>
                         <Insets right="20.0" />

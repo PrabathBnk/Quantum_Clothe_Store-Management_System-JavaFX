@@ -1,5 +1,6 @@
 package edu.icet.service;
 
+import edu.icet.service.custom.impl.EmployeeServiceImpl;
 import edu.icet.service.custom.impl.UserServiceImpl;
 import edu.icet.util.ServiceType;
 
@@ -15,6 +16,7 @@ public class ServiceFactory {
     public <T extends SuperService> T getService(ServiceType type){
         switch (type) {
             case USER: return (T) new UserServiceImpl();
+            case EMPLOYEE: return (T) new EmployeeServiceImpl();
             default: return null;
         }
     }

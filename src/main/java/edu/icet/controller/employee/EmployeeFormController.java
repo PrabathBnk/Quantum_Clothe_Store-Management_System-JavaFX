@@ -1,13 +1,23 @@
 package edu.icet.controller.employee;
 
 
+import edu.icet.dto.EmployeeDto;
+import edu.icet.service.ServiceFactory;
+import edu.icet.service.custom.EmployeeService;
+import edu.icet.util.LoadFontUtil;
 import edu.icet.util.SceneSwitcher;
+import edu.icet.util.ServiceType;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 
 public class EmployeeFormController {
@@ -33,11 +43,6 @@ public class EmployeeFormController {
     @FXML
     private BorderPane mainPane;
 
-
-    @FXML
-    void btnSlideBarEmployee(ActionEvent event) {
-
-    }
 
     @FXML
     void btnSlideBarOrder(ActionEvent event) {
@@ -66,5 +71,12 @@ public class EmployeeFormController {
 
     public void btnSlideBarDashboard(ActionEvent actionEvent) {
         SceneSwitcher.switchSceneTo((Stage) mainPane.getScene().getWindow(), SceneSwitcher.ADMIN_DASHBOARD);
+    }
+
+
+
+    @FXML
+    void btnAddEmployeeOnAction(ActionEvent event) {
+        SceneSwitcher.showModal(mainPane.getScene().getWindow(), "../../../view/add_employee_form.fxml");
     }
 }

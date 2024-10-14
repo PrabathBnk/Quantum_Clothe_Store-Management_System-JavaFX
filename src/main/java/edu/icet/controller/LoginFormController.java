@@ -100,9 +100,9 @@ public class LoginFormController implements Initializable {
             Stage stage = (Stage) mainPane.getScene().getWindow();
 
             if ("Admin".equals(cmbAccountType.getValue())) {
-                SceneSwitcher.switchSceneTo(stage, "../../../view/admin_dashboard.fxml");
+                SceneSwitcher.switchSceneTo(stage, SceneSwitcher.ADMIN_DASHBOARD);
             } else {
-                SceneSwitcher.switchSceneTo(stage, "../../../view/general_dashboard.fxml");
+                SceneSwitcher.switchSceneTo(stage, SceneSwitcher.GENERAL_DASHBOARD);
             }
 
         }

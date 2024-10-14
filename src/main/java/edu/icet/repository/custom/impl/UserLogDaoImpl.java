@@ -26,4 +26,9 @@ public class UserLogDaoImpl implements UserLogDao {
     public Integer countAll() {
         return 0;
     }
+
+    @Override
+    public boolean delete(String id) {
+        return false;
+    }
 }

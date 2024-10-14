@@ -54,4 +54,9 @@ public class UserDaoImpl implements UserDao {
     public Integer countAll() {
         return 0;
     }
+
+    @Override
+    public boolean delete(String id) {
+        return false;
+    }
 }

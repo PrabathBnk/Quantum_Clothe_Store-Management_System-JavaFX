@@ -3,6 +3,8 @@ package edu.icet.repository.custom.impl;
 import edu.icet.db.DBConnection;
 import edu.icet.entity.Employee;
 import edu.icet.repository.custom.EmployeeDao;
+import edu.icet.util.HibernateUtil;
+import org.hibernate.Session;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -27,17 +29,54 @@ public class EmployeeDaoImpl implements EmployeeDao {
     }
 
     @Override
+    public Employee getEmployeeById(String id) {
+        Session session = HibernateUtil.getSession();
+        session.beginTransaction();
+        Employee employee = session.get(Employee.class, id);
+        session.getTransaction().commit();
+        session.close();
+        return employee;
+    }
+
+    @Override
     public boolean update(Employee employee) {
         return false;
     }
 
     @Override
     public boolean save(Employee employee) {
-        return false;
+        try {
+            Session session = HibernateUtil.getSession();
+            session.beginTransaction();
+            session.persist(employee);
+            session.getTransaction().commit();
+            session.close();
+
+            return true;
+
+        } catch (RuntimeException exception) {
+            return false;
+        }
     }
 
     @Override
     public Integer countAll() {
-        return 0;
+        String SQL = "SELECT COUNT(*) FROM Employee";
+        try {
+            Connection connection = DBConnection.getInstance().getConnection();
+            PreparedStatement psTm = connection.prepareStatement(SQL);
+
+            ResultSet resultSet = psTm.executeQuery();
+            resultSet.next();
+            return resultSet.getInt(1);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public boolean delete(String id) {
+
+        return false;
     }
 }
