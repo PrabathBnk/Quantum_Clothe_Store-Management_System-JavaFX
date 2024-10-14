@@ -126,31 +126,51 @@
             </HBox>
             <VBox style="-fx-background-color: #fff; -fx-background-radius: 10;">
                <children>
-                  <TableView fx:id="tblEmployee" maxHeight="-Infinity" minHeight="200.0" prefHeight="730.0">
+                  <TableView fx:id="tblEmployee" focusTraversable="false" maxHeight="-Infinity" minHeight="200.0" prefHeight="730.0">
                     <columns>
-                      <TableColumn fx:id="colNum" maxWidth="100.0" minWidth="-Infinity" prefWidth="90.0" sortable="false" styleClass="table-header">
+                      <TableColumn fx:id="colNum" maxWidth="100.0" minWidth="-Infinity" prefWidth="90.0" sortable="false">
                            <graphic>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="#" />
+                              <HBox alignment="CENTER" styleClass="table-header">
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="#" />
+                                 </children>
+                              </HBox>
                            </graphic>
                         </TableColumn>
-                      <TableColumn fx:id="colEmployeeId" maxWidth="220.0" minWidth="-Infinity" prefWidth="191.0" sortable="false" styleClass="table-header">
+                      <TableColumn fx:id="colEmployeeId" maxWidth="220.0" minWidth="-Infinity" prefWidth="191.0" sortable="false">
                            <graphic>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Employee ID" />
+                              <HBox alignment="CENTER" styleClass="table-header">
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Employee ID" />
+                                 </children>
+                              </HBox>
                            </graphic>
                         </TableColumn>
-                        <TableColumn fx:id="colName" maxWidth="530.0" minWidth="-Infinity" prefWidth="395.0" sortable="false" styleClass="table-header">
+                        <TableColumn fx:id="colName" maxWidth="530.0" minWidth="-Infinity" prefWidth="395.0" sortable="false">
                            <graphic>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Name" />
+                              <HBox alignment="CENTER" styleClass="table-header">
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Name" />
+                                 </children>
+                              </HBox>
                            </graphic>
                         </TableColumn>
-                        <TableColumn fx:id="colContact" maxWidth="330.0" minWidth="-Infinity" prefWidth="285.33331298828125" sortable="false" styleClass="table-header">
+                        <TableColumn fx:id="colContact" maxWidth="330.0" minWidth="-Infinity" prefWidth="285.33331298828125" sortable="false">
                            <graphic>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Contact" />
+                              <HBox alignment="CENTER" styleClass="table-header">
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Contact" />
+                                 </children>
+                              </HBox>
                            </graphic>
                         </TableColumn>
-                        <TableColumn fx:id="colEmail" maxWidth="390.0" minWidth="-Infinity" prefWidth="312.0" sortable="false" styleClass="table-header">
+                        <TableColumn fx:id="colEmail" maxWidth="390.0" minWidth="-Infinity" prefWidth="312.0" sortable="false">
                            <graphic>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Email Address" />
+                              <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" styleClass="table-header">
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Email Address" />
+                                 </children>
+                              </HBox>
                            </graphic>
                         </TableColumn>
                     </columns>

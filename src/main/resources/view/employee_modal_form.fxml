@@ -13,13 +13,12 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Text?>
 
-
-<BorderPane fx:id="mainLayout" style="-fx-background-color: fff;" styleClass="poppins" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.employee.EmploeeModalFormController">
+<BorderPane style="-fx-background-color: fff;" styleClass="poppins" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.employee.EmployeeModalFormController">
    <top>
       <HBox alignment="CENTER_LEFT" maxWidth="450.0" minWidth="400.0" style="-fx-background-color: D82B5C; -fx-background-radius: 8;">
          <children>
             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 16;" text="Employee ID | " />
-            <Label style="-fx-font-weight: 700; -fx-font-size: 16;" text="E0001" textFill="WHITE" />
+            <Label fx:id="lblEmployeeId" style="-fx-font-weight: 700; -fx-font-size: 16;" text="E0001" textFill="WHITE" />
          </children>
          <padding>
             <Insets bottom="5.0" left="15.0" right="15.0" top="5.0" />
@@ -50,9 +49,9 @@
             <Text fill="#554f51" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700; -fx-font-size: 12;" text="Name" GridPane.valignment="BOTTOM" />
             <Text fill="#554f51" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700; -fx-font-size: 12;" text="Contact Number" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
             <Text fill="#554f51" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700; -fx-font-size: 12;" text="Email Address" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
-            <JFXTextField GridPane.columnIndex="1" />
-            <JFXTextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <JFXTextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <JFXTextField fx:id="txtName" focusColor="#d82b5c" GridPane.columnIndex="1" />
+            <JFXTextField fx:id="txtContact" focusColor="#d82b5c" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <JFXTextField fx:id="txtEmail" focusColor="#d82b5c" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
          <padding>
             <Insets left="20.0" right="20.0" />
@@ -62,8 +61,8 @@
    <bottom>
       <HBox alignment="CENTER_RIGHT" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
-            <JFXButton minWidth="120.0" style="-fx-background-color: D82B5C;" text="Update" textFill="WHITE" />
-            <JFXButton layoutX="10.0" layoutY="10.0" minWidth="120.0" style="-fx-background-color: FEE5E9;" text="Delete" textFill="#d82b5c" />
+            <JFXButton minWidth="120.0" onAction="#btnUpdateOnAction" style="-fx-background-color: D82B5C;" text="Update" textFill="WHITE" />
+            <JFXButton layoutX="10.0" layoutY="10.0" minWidth="120.0" onAction="#btnDeleteOnAction" style="-fx-background-color: FEE5E9;" text="Delete" textFill="#d82b5c" />
          </children>
          <BorderPane.margin>
             <Insets top="20.0" />

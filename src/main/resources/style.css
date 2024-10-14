@@ -16,8 +16,6 @@
 .table-header{
     -fx-text-fill: "white";
     -fx-background-color: "7F787B";
-    -fx-border-color: "transparent" "fff" "transparent" "transparent";
-    -fx-border-width: 0 1px 0 0;
 }
 
 .border-left{

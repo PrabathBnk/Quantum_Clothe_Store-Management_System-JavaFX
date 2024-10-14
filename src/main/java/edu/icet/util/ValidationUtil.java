@@ -7,6 +7,6 @@ public class ValidationUtil {
     }
 
     public static boolean isValidContactNumber(String contact) {
-        return contact.startsWith("0") || contact.startsWith("+") && contact.matches("[+0]\\d{9,}");
+        return (contact.startsWith("0") || contact.startsWith("+")) && contact.matches("[+0]\\d{9,}");
     }
 }

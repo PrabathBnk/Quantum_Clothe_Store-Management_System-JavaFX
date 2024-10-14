@@ -4,12 +4,16 @@ import edu.icet.db.DBConnection;
 import edu.icet.entity.Employee;
 import edu.icet.repository.custom.EmployeeDao;
 import edu.icet.util.HibernateUtil;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
 import org.hibernate.Session;
+import org.hibernate.query.criteria.HibernateCriteriaBuilder;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 public class EmployeeDaoImpl implements EmployeeDao {
 
@@ -39,8 +43,28 @@ public class EmployeeDaoImpl implements EmployeeDao {
     }
 
     @Override
+    public List<Employee> getAll() {
+        Session session = HibernateUtil.getSession();
+        session.beginTransaction();
+        HibernateCriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
+        CriteriaQuery<Employee> criteriaQuery = criteriaBuilder.createQuery(Employee.class);
+        criteriaQuery.from(Employee.class);
+        List<Employee> employeeList = session.createQuery(criteriaQuery).getResultList();
+        session.close();
+        return employeeList;
+    }
+
+    @Override
     public boolean update(Employee employee) {
-        return false;
+        try {
+            Session session = HibernateUtil.getSession();
+            session.beginTransaction();
+            session.merge(employee);
+            session.getTransaction().commit();
+            return true;
+        } catch (RuntimeException exception) {
+            return false;
+        }
     }
 
     @Override

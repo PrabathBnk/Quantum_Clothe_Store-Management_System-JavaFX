@@ -30,7 +30,7 @@ public class SceneSwitcher {
         }
     }
 
-    public static void showModal(Window owner, String path) {
+    public static Stage showModal(Window owner, String path) {
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.initOwner(owner);
@@ -40,6 +40,7 @@ public class SceneSwitcher {
             stage.setResizable(false);
             stage.setScene(scene);
             stage.show();
+            return stage;
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

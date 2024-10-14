@@ -15,4 +15,12 @@ public class EmployeeDto {
      private String name;
      private String emailAddress;
      private String contact;
+     private Integer num;
+
+     public EmployeeDto(String employeeId, String name, String emailAddress, String contact) {
+          this.employeeId = employeeId;
+          this.name = name;
+          this.emailAddress = emailAddress;
+          this.contact = contact;
+     }
 }
