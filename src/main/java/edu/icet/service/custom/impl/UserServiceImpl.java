@@ -127,7 +127,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<UserTableDto> getAllUsers() {
-        List<User> userList = userDao.getAllUsers();
+        List<User> userList = userDao.getAll();
         List<UserTableDto> userTableDtoList = new ArrayList<>();
 
         EmployeeDao employeeDao = DaoFactory.getInstance().getDao(DaoType.EMPLOYEE);
@@ -147,7 +147,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public String generateUserId() {
 
-        return String.format("UID%03d", (Integer.parseInt(userDao.getLastUserID().substring(3)) + 1));
+        return String.format("UID%03d", (Integer.parseInt(userDao.getLastId().substring(3)) + 1));
     }
 
     @Override

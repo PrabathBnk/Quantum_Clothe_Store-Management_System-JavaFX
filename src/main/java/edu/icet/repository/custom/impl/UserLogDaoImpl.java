@@ -34,5 +34,15 @@ public class UserLogDaoImpl implements UserLogDao {
         return false;
     }
 
+    @Override
+    public String getLastId() {
+        return "";
+    }
+
+    @Override
+    public List<UserLog> getAll() {
+        return List.of();
+    }
+
 
 }

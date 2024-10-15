@@ -21,7 +21,7 @@
       <HBox alignment="CENTER_LEFT" maxWidth="450.0" minWidth="400.0" style="-fx-background-color: D82B5C; -fx-background-radius: 8;">
          <children>
             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 16;" text="Supplier ID | " />
-            <Label style="-fx-font-weight: 700; -fx-font-size: 16;" text="S0001" textFill="WHITE" />
+            <Label fx:id="lblSupplierId" style="-fx-font-weight: 700; -fx-font-size: 16;" text="S0001" textFill="WHITE" />
          </children>
          <padding>
             <Insets bottom="5.0" left="15.0" right="15.0" top="5.0" />
@@ -52,11 +52,11 @@
               </rowConstraints>
                <children>
                   <Text fill="#554f51" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700; -fx-font-size: 12;" text="Name" GridPane.valignment="BOTTOM" />
-                  <Text fill="#554f51" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700; -fx-font-size: 12;" text="Company" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+                  <Text fill="#554f51" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700; -fx-font-size: 12;" text="Company Name" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
                   <Text fill="#554f51" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 700; -fx-font-size: 12;" text="Email Address" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
-                  <JFXTextField GridPane.columnIndex="1" />
-                  <JFXTextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <JFXTextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <JFXTextField fx:id="txtName" GridPane.columnIndex="1" />
+                  <JFXTextField fx:id="txtCompanyName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <JFXTextField fx:id="txtEmailAddress" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                </children>
                <padding>
                   <Insets left="20.0" right="20.0" />
@@ -74,24 +74,24 @@
                   </HBox>
                   <TableView>
                     <columns>
-                      <TableColumn prefWidth="53.0" styleClass="table-header">
+                      <TableColumn fx:id="colNum" prefWidth="53.0" styleClass="table-header">
                            <graphic>
                               <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="#" />
                            </graphic>
                         </TableColumn>
-                      <TableColumn prefWidth="137.0" styleClass="table-header">
+                      <TableColumn fx:id="colProductId" prefWidth="137.0" styleClass="table-header">
                            <graphic>
                               <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Product ID" />
                            </graphic>
                         </TableColumn>
                         <TableColumn prefWidth="230.0" styleClass="table-header">
                            <graphic>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Product Name" />
+                              <Text fx:id="colProductName" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Product Name" />
                            </graphic>
                         </TableColumn>
                         <TableColumn prefWidth="159.0" styleClass="table-header">
                            <graphic>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Category" />
+                              <Text fx:id="colCategory" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Category" />
                            </graphic>
                         </TableColumn>
                     </columns>
@@ -110,8 +110,8 @@
    <bottom>
       <HBox alignment="CENTER_RIGHT" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
-            <JFXButton minWidth="120.0" style="-fx-background-color: D82B5C;" text="Update" textFill="WHITE" />
-            <JFXButton layoutX="10.0" layoutY="10.0" minWidth="120.0" style="-fx-background-color: FEE5E9;" text="Delete" textFill="#d82b5c" />
+            <JFXButton minWidth="120.0" onAction="#btnUpdateOnAction" style="-fx-background-color: D82B5C;" text="Update" textFill="WHITE" />
+            <JFXButton layoutX="10.0" layoutY="10.0" minWidth="120.0" onAction="#btnDeleteOnAction" style="-fx-background-color: FEE5E9;" text="Delete" textFill="#d82b5c" />
          </children>
          <BorderPane.margin>
             <Insets top="20.0" />

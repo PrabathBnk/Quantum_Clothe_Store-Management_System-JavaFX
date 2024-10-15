@@ -4,7 +4,6 @@ import edu.icet.db.DBConnection;
 import edu.icet.entity.Employee;
 import edu.icet.repository.custom.EmployeeDao;
 import edu.icet.util.HibernateUtil;
-import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import org.hibernate.Session;
 import org.hibernate.query.criteria.HibernateCriteriaBuilder;
@@ -65,7 +64,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
     }
 
     @Override
-    public String getLastEmployeeID() {
+    public String getLastId() {
         String SQL = "SELECT EmployeeID FROM Employee ORDER BY EmployeeID DESC LIMIT 1";
         try {
             Connection connection = DBConnection.getInstance().getConnection();

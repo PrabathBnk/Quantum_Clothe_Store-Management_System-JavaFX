@@ -81,7 +81,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public List<User> getAllUsers() {
+    public List<User> getAll() {
         String SQL = "SELECT EmployeeID, UserID FROM User;";
 
         try {
@@ -103,7 +103,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public String getLastUserID() {
+    public String getLastId() {
         String SQL = "SELECT UserID FROM User ORDER BY UserID DESC LIMIT 1";
         try {
             Connection connection = DBConnection.getInstance().getConnection();

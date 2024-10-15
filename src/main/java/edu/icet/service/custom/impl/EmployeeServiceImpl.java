@@ -45,7 +45,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public String generateEmployeeId() {
-        String employeeId = employeeDao.getLastEmployeeID();
+        String employeeId = employeeDao.getLastId();
         return String.format("EMP%03d", (Integer.parseInt(employeeId.substring(3)) + 1));
     }
 

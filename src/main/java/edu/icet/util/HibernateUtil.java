@@ -1,6 +1,7 @@
 package edu.icet.util;
 
 import edu.icet.entity.Employee;
+import edu.icet.entity.Supplier;
 import edu.icet.entity.User;
 import edu.icet.entity.UserLog;
 import org.hibernate.Session;
@@ -24,6 +25,7 @@ public class HibernateUtil {
                 .addAnnotatedClass(User.class)
                 .addAnnotatedClass(Employee.class)
                 .addAnnotatedClass(UserLog.class)
+                .addAnnotatedClass(Supplier.class)
                 .getMetadataBuilder()
                 .applyImplicitNamingStrategy(ImplicitNamingStrategyJpaCompliantImpl.INSTANCE)
                 .build();

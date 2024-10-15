@@ -7,6 +7,4 @@ import java.util.List;
 
 public interface UserDao extends CrudDao<User> {
     User getUserByEmployeeId(String id);
-    List<User> getAllUsers();
-    String getLastUserID();
 }
