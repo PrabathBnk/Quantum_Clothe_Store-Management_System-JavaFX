@@ -17,4 +17,5 @@ public interface UserService extends SuperService {
     List<UserTableDto> getAllUsers();
     String generateUserId();
     boolean addNewUser(UserDto userDto);
+    boolean deleteUser(UserTableDto userTableDto);
 }

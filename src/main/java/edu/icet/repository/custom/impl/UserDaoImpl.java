@@ -68,8 +68,16 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public boolean delete(String id) {
-        return false;
+    public boolean delete(User user) {
+        try {
+            Session session = HibernateUtil.getSession();
+            session.beginTransaction();
+            session.remove(user);
+            session.getTransaction().commit();
+            return true;
+        } catch (RuntimeException exception) {
+            return false;
+        }
     }
 
     @Override

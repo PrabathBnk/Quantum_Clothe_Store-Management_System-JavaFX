@@ -122,9 +122,5 @@ public class EmployeeDaoImpl implements EmployeeDao {
         }
     }
 
-    @Override
-    public boolean delete(String id) {
 
-        return false;
-    }
 }

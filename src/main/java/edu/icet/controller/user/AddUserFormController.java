@@ -72,6 +72,10 @@ public class AddUserFormController implements Initializable {
             lblEmployeeId.setText(employeeDto.getEmployeeId());
             lblName.setText(employeeDto.getName());
             lblEmailAddress.setText(employeeDto.getEmailAddress());
+        } else {
+            lblEmployeeId.setText(null);
+            lblName.setText(null);
+            lblEmailAddress.setText(null);
         }
     }
 

@@ -30,8 +30,9 @@ public class UserLogDaoImpl implements UserLogDao {
     }
 
     @Override
-    public boolean delete(String id) {
+    public boolean delete(UserLog userLog) {
         return false;
     }
+
 
 }

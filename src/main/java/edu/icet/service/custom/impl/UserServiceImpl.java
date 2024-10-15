@@ -152,14 +152,22 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean addNewUser(UserDto userDto) {
-        System.out.println(userDto.getEmployeeID());
-
-        if (null==userDto.getEmployeeID()) {
+        if (userDto.getEmployeeID().isEmpty()) {
             new Alert(Alert.AlertType.ERROR, "Please choose an employee!").show();
             return false;
         }
 
         return userDao.save(new ModelMapper().map(userDto, User.class));
+    }
+
+    @Override
+    public boolean deleteUser(UserTableDto userTableDto) {
+        EmployeeDao employeeDao = DaoFactory.getInstance().getDao(DaoType.EMPLOYEE);
+        String employeeId = employeeDao.getEmployeeByEmail(userTableDto.getEmailAddress());
+        return userDao.delete(new User(
+                employeeId,
+                userTableDto.getUserID()
+        ));
     }
 
     private User getUserIfValid(String email){
