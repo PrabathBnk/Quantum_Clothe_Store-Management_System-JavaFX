@@ -5,6 +5,8 @@ import edu.icet.repository.custom.UserLogDao;
 import edu.icet.util.HibernateUtil;
 import org.hibernate.Session;
 
+import java.util.List;
+
 public class UserLogDaoImpl implements UserLogDao {
     @Override
     public boolean update(UserLog userLog) {
@@ -31,4 +33,5 @@ public class UserLogDaoImpl implements UserLogDao {
     public boolean delete(String id) {
         return false;
     }
+
 }

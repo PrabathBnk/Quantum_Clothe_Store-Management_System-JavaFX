@@ -10,6 +10,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDaoImpl implements UserDao {
 
@@ -47,7 +49,17 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public boolean save(User user) {
-        return false;
+        try{
+            Session session = HibernateUtil.getSession();
+            session.beginTransaction();
+            session.persist(user);
+            session.getTransaction().commit();
+            session.close();
+            return true;
+        } catch (RuntimeException exception) {
+            return false;
+        }
+
     }
 
     @Override
@@ -58,5 +70,41 @@ public class UserDaoImpl implements UserDao {
     @Override
     public boolean delete(String id) {
         return false;
+    }
+
+    @Override
+    public List<User> getAllUsers() {
+        String SQL = "SELECT EmployeeID, UserID FROM User;";
+
+        try {
+            Connection connection = DBConnection.getInstance().getConnection();
+            PreparedStatement psTm = connection.prepareStatement(SQL);
+            ResultSet resultSet = psTm.executeQuery();
+            List<User> userList = new ArrayList<>();
+            while (resultSet.next()) {
+                userList.add(new User(
+                        resultSet.getString(1),
+                        resultSet.getString(2)
+                ));
+            }
+
+            return userList;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public String getLastUserID() {
+        String SQL = "SELECT UserID FROM User ORDER BY UserID DESC LIMIT 1";
+        try {
+            Connection connection = DBConnection.getInstance().getConnection();
+            PreparedStatement psTm = connection.prepareStatement(SQL);
+
+            ResultSet resultSet = psTm.executeQuery();
+            return resultSet.next() ? resultSet.getString("UserID"): "UID000";
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

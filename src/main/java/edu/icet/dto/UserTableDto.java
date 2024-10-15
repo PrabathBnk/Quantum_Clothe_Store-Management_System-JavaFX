@@ -6,14 +6,13 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Data
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserDto {
+@ToString
+public class UserTableDto {
 
-    private String employeeID;
+    private Integer num;
     private String userID;
-    private String userType;
-    private String password;
-
+    private String name;
+    private String emailAddress;
 }

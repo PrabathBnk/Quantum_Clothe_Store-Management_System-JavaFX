@@ -20,4 +20,9 @@ public class User {
     private String userID;
     private String userType;
     private String password;
+
+    public User(String employeeID, String userID) {
+        this.employeeID = employeeID;
+        this.userID = userID;
+    }
 }

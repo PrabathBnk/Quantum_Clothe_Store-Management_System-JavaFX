@@ -11,4 +11,5 @@ public interface EmployeeService extends SuperService {
     List<EmployeeDto> getAllEmployees();
     boolean updateEmployee(EmployeeDto employeeDto);
     boolean deleteEmployee(EmployeeDto employeeDto);
+    EmployeeDto getEmployeeIfNonUser(String id);
 }

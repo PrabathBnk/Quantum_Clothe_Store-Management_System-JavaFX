@@ -5,6 +5,7 @@ import edu.icet.entity.Employee;
 import edu.icet.repository.DaoFactory;
 import edu.icet.repository.SuperDao;
 import edu.icet.repository.custom.EmployeeDao;
+import edu.icet.repository.custom.UserDao;
 import edu.icet.service.custom.EmployeeService;
 import edu.icet.util.DaoType;
 import edu.icet.util.ValidationUtil;
@@ -82,6 +83,24 @@ public class EmployeeServiceImpl implements EmployeeService {
     public boolean deleteEmployee(EmployeeDto employeeDto) {
 
         return employeeDao.delete(new ModelMapper().map(employeeDto, Employee.class));
+    }
+
+    @Override
+    public EmployeeDto getEmployeeIfNonUser(String id) {
+        Employee employee = employeeDao.getEmployeeById(id);
+
+        if(null==employee) {
+            new Alert(Alert.AlertType.ERROR, "Employee not found!").show();
+            return null;
+        }
+
+        UserDao userDao = DaoFactory.getInstance().getDao(DaoType.USER);
+        if (null!=userDao.getUserByEmployeeId(id)) {
+            new Alert(Alert.AlertType.ERROR, "This employee is already registered!").show();
+            return null;
+        }
+
+        return new ModelMapper().map(employee, EmployeeDto.class);
     }
 
     private boolean isAllFieldsFilled(EmployeeDto employeeDto) {

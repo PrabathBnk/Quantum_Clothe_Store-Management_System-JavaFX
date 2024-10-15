@@ -2,21 +2,27 @@ package edu.icet.service.custom.impl;
 
 import edu.icet.dto.CreateAccountDto;
 import edu.icet.dto.LoginDto;
+import edu.icet.dto.UserDto;
+import edu.icet.dto.UserTableDto;
+import edu.icet.entity.Employee;
 import edu.icet.entity.User;
 import edu.icet.entity.UserLog;
 import edu.icet.repository.DaoFactory;
+import edu.icet.repository.SuperDao;
 import edu.icet.repository.custom.EmployeeDao;
 import edu.icet.repository.custom.UserDao;
 import edu.icet.repository.custom.UserLogDao;
+import edu.icet.service.ServiceFactory;
+import edu.icet.service.custom.EmployeeService;
 import edu.icet.service.custom.UserService;
-import edu.icet.util.DaoType;
-import edu.icet.util.EmailSenderUtil;
-import edu.icet.util.OTPUtil;
-import edu.icet.util.PasswordUtil;
+import edu.icet.util.*;
 import javafx.scene.control.Alert;
+import org.modelmapper.ModelMapper;
 import org.passay.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserServiceImpl implements UserService {
 
@@ -117,6 +123,43 @@ public class UserServiceImpl implements UserService {
         user.setPassword(PasswordUtil.encryptPassword(newPassword));
 
         return userDao.update(user);
+    }
+
+    @Override
+    public List<UserTableDto> getAllUsers() {
+        List<User> userList = userDao.getAllUsers();
+        List<UserTableDto> userTableDtoList = new ArrayList<>();
+
+        EmployeeDao employeeDao = DaoFactory.getInstance().getDao(DaoType.EMPLOYEE);
+        for (int i = 0; i < userList.size(); i++) {
+            Employee employee = employeeDao.getEmployeeById(userList.get(i).getEmployeeID());
+            userTableDtoList.add(new UserTableDto(
+                    i + 1,
+                    userList.get(i).getUserID(),
+                    employee.getName(),
+                    employee.getEmailAddress()
+            ));
+        }
+
+        return userTableDtoList;
+    }
+
+    @Override
+    public String generateUserId() {
+
+        return String.format("UID%03d", (Integer.parseInt(userDao.getLastUserID().substring(3)) + 1));
+    }
+
+    @Override
+    public boolean addNewUser(UserDto userDto) {
+        System.out.println(userDto.getEmployeeID());
+
+        if (null==userDto.getEmployeeID()) {
+            new Alert(Alert.AlertType.ERROR, "Please choose an employee!").show();
+            return false;
+        }
+
+        return userDao.save(new ModelMapper().map(userDto, User.class));
     }
 
     private User getUserIfValid(String email){
