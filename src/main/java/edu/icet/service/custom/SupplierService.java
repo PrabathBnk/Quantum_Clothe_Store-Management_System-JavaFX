@@ -11,4 +11,5 @@ public interface SupplierService extends SuperService {
     boolean addNewSupplier(SupplierDto supplierDto);
     boolean updateSupplier(SupplierDto supplierDto);
     boolean deleteSupplier(SupplierDto supplierDto);
+    String getSupplierNameById(String id);
 }

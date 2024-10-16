@@ -27,7 +27,7 @@
                   <Insets bottom="80.0" />
                </VBox.margin>
             </ImageView>
-            <JFXButton maxWidth="165.0" minHeight="50.0" onAction="#btnSlideBarDashboard" style="-fx-font-weight: 700; -fx-border-radius: 8; -fx-background-radius: 8;" styleClass="active-btn" text="Dashboard" textFill="#7f787b">
+            <JFXButton maxWidth="165.0" minHeight="50.0" onAction="#btnSlideBarDashboard" style="-fx-font-weight: 700; -fx-border-radius: 8; -fx-background-radius: 8;" styleClass="btn" text="Dashboard" textFill="#7f787b">
                <padding>
                   <Insets bottom="10.0" top="10.0" />
                </padding>
@@ -59,7 +59,7 @@
                   <Insets bottom="5.0" />
                </VBox.margin>
             </JFXButton>
-            <JFXButton layoutX="48.0" layoutY="352.0" maxWidth="165.0" minHeight="50.0" onAction="#btnSlideBarProduct" style="-fx-font-weight: 700; -fx-border-radius: 8; -fx-background-radius: 8;" styleClass="btn" text="Products" textFill="#7f787b">
+            <JFXButton layoutX="48.0" layoutY="352.0" maxWidth="165.0" minHeight="50.0" onAction="#btnSlideBarProduct" style="-fx-font-weight: 700; -fx-border-radius: 8; -fx-background-radius: 8;" styleClass="active-btn" text="Products" textFill="#7f787b">
                <padding>
                   <Insets bottom="10.0" top="10.0" />
                </padding>
@@ -113,7 +113,7 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" maxHeight="800.0" minWidth="-Infinity" prefWidth="600.0">
                      <children>
-                        <JFXButton prefHeight="33.0" prefWidth="176.0" styleClass="primary-btn" text="Add New Product" />
+                        <JFXButton onAction="#btnAddProductOnAction" prefHeight="33.0" prefWidth="176.0" styleClass="primary-btn" text="Add New Product" />
                      </children>
                      <padding>
                         <Insets right="20.0" />
@@ -126,36 +126,60 @@
             </HBox>
             <VBox style="-fx-background-color: #fff; -fx-background-radius: 10;">
                <children>
-                  <TableView maxHeight="-Infinity" minHeight="200.0" prefHeight="730.0">
+                  <TableView fx:id="tblProducts" maxHeight="-Infinity" minHeight="200.0" prefHeight="730.0">
                     <columns>
-                      <TableColumn maxWidth="150.0" minWidth="-Infinity" prefWidth="90.0" sortable="false" styleClass="table-header">
+                      <TableColumn fx:id="colNum" maxWidth="150.0" minWidth="-Infinity" prefWidth="90.0" sortable="false">
                            <graphic>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="#" />
+                              <HBox alignment="CENTER" styleClass="table-header">
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="#" />
+                                 </children>
+                              </HBox>
                            </graphic>
                         </TableColumn>
-                      <TableColumn maxWidth="250.0" minWidth="-Infinity" prefWidth="175.0" sortable="false" styleClass="table-header">
+                      <TableColumn fx:id="colProductId" maxWidth="250.0" minWidth="-Infinity" prefWidth="175.0" sortable="false">
                            <graphic>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Product ID" />
+                              <HBox alignment="CENTER" styleClass="table-header">
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Product ID" />
+                                 </children>
+                              </HBox>
                            </graphic>
                         </TableColumn>
-                        <TableColumn maxWidth="550.0" minWidth="-Infinity" prefWidth="300.0" sortable="false" styleClass="table-header">
+                        <TableColumn fx:id="colName" maxWidth="550.0" minWidth="-Infinity" prefWidth="300.0" sortable="false">
                            <graphic>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Name" />
+                              <HBox alignment="CENTER" styleClass="table-header">
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Name" />
+                                 </children>
+                              </HBox>
                            </graphic>
                         </TableColumn>
-                        <TableColumn maxWidth="220.0" minWidth="-Infinity" prefWidth="175.0" sortable="false" styleClass="table-header">
+                        <TableColumn fx:id="colPrice" maxWidth="220.0" minWidth="-Infinity" prefWidth="175.0" sortable="false">
                            <graphic>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Price" />
+                              <HBox alignment="CENTER" styleClass="table-header">
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Price" />
+                                 </children>
+                              </HBox>
                            </graphic>
                         </TableColumn>
-                        <TableColumn maxWidth="220.0" minWidth="-Infinity" prefWidth="175.0" sortable="false" styleClass="table-header">
+                        <TableColumn fx:id="colQuantity" maxWidth="220.0" minWidth="-Infinity" prefWidth="175.0" sortable="false">
                            <graphic>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Quantity" />
+                              <HBox alignment="CENTER" styleClass="table-header">
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Quantity" />
+                                 </children>
+                              </HBox>
                            </graphic>
                         </TableColumn>
-                        <TableColumn maxWidth="220.0" minWidth="-Infinity" prefWidth="175.0" sortable="false" styleClass="table-header">
+                        <TableColumn fx:id="colSize" maxWidth="220.0" minWidth="-Infinity" prefWidth="175.0" sortable="false">
                            <graphic>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Size" />
+                              <HBox alignment="CENTER" styleClass="table-header">
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Size" />
+                                 </children>
+                              </HBox>
                            </graphic>
                         </TableColumn>
                     </columns>

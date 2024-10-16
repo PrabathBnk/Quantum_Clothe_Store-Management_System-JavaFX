@@ -65,6 +65,12 @@ public class SupplierServiceImpl implements SupplierService{
         return supplierDao.delete(new ModelMapper().map(supplierDto, Supplier.class));
     }
 
+    @Override
+    public String getSupplierNameById(String id) {
+
+        return supplierDao.getSupplierNameById(id);
+    }
+
     private boolean validateSupplierDto(SupplierDto supplierDto) {
         if (supplierDto.getName().isEmpty() || supplierDto.getCompanyName().isEmpty() || supplierDto.getEmailAddress().isEmpty()) {
             new Alert(Alert.AlertType.ERROR, "Make sure to fill the fields!").show();

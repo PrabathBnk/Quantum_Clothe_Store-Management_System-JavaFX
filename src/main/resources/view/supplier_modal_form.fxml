@@ -72,26 +72,42 @@
                         <Text fill="#7f787b" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 15;" text="Supplied Products" />
                      </children>
                   </HBox>
-                  <TableView>
+                  <TableView fx:id="tblProducts">
                     <columns>
-                      <TableColumn fx:id="colNum" prefWidth="53.0" styleClass="table-header">
+                      <TableColumn fx:id="colNum" prefWidth="45.0">
                            <graphic>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="#" />
+                              <HBox alignment="CENTER" styleClass="table-header">
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="#" />
+                                 </children>
+                              </HBox>
                            </graphic>
                         </TableColumn>
-                      <TableColumn fx:id="colProductId" prefWidth="137.0" styleClass="table-header">
+                      <TableColumn fx:id="colProductId" prefWidth="113.0">
                            <graphic>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Product ID" />
+                              <HBox alignment="CENTER" styleClass="table-header">
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Product ID" />
+                                 </children>
+                              </HBox>
                            </graphic>
                         </TableColumn>
-                        <TableColumn prefWidth="230.0" styleClass="table-header">
+                        <TableColumn fx:id="colProductName" prefWidth="277.0">
                            <graphic>
-                              <Text fx:id="colProductName" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Product Name" />
+                              <HBox alignment="CENTER" styleClass="table-header">
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Product Name" />
+                                 </children>
+                              </HBox>
                            </graphic>
                         </TableColumn>
-                        <TableColumn prefWidth="159.0" styleClass="table-header">
+                        <TableColumn fx:id="colCategory" prefWidth="125.0">
                            <graphic>
-                              <Text fx:id="colCategory" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Category" />
+                              <HBox alignment="CENTER" styleClass="table-header">
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Category" />
+                                 </children>
+                              </HBox>
                            </graphic>
                         </TableColumn>
                     </columns>

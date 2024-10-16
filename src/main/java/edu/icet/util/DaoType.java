@@ -4,5 +4,7 @@ public enum DaoType {
     EMPLOYEE,
     USER,
     USERLOG,
-    SUPPLIER
+    SUPPLIER,
+    PRODUCT,
+    CATEGORY
 }

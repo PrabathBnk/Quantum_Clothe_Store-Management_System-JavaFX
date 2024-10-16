@@ -1,8 +1,6 @@
 package edu.icet.service;
 
-import edu.icet.service.custom.impl.EmployeeServiceImpl;
-import edu.icet.service.custom.impl.SupplierServiceImpl;
-import edu.icet.service.custom.impl.UserServiceImpl;
+import edu.icet.service.custom.impl.*;
 import edu.icet.util.ServiceType;
 
 public class ServiceFactory {
@@ -19,6 +17,8 @@ public class ServiceFactory {
             case USER: return (T) new UserServiceImpl();
             case EMPLOYEE: return (T) new EmployeeServiceImpl();
             case SUPPLIER: return (T) new SupplierServiceImpl();
+            case PRODUCT: return (T) new ProductServiceImpl();
+            case CATEGORY: return (T) new CategoryServiceImpl();
             default: return null;
         }
     }
