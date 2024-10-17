@@ -97,6 +97,12 @@ public class ProductServiceImpl implements ProductService {
         return supplierProductDtoList;
     }
 
+    @Override
+    public ProductDto getProduct(String nameOrId) {
+        Product product = productDao.getProduct(nameOrId);
+        return null==product ? null: new ModelMapper().map(productDao.getProduct(nameOrId), ProductDto.class);
+    }
+
     private boolean isAllFieldsFilled(ProductDto productDto){
         if (productDto.getName().isEmpty() || null==productDto.getImage() || productDto.getSupplierID().isEmpty() || productDto.getCategory().isEmpty()) {
             new Alert(Alert.AlertType.ERROR, "Make sure to fill all fields!").show();

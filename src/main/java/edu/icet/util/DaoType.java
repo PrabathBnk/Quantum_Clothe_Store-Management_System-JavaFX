@@ -6,5 +6,8 @@ public enum DaoType {
     USERLOG,
     SUPPLIER,
     PRODUCT,
-    CATEGORY
+    CATEGORY,
+    ORDERS,
+    PAYMENT_TYPE,
+    ORDER_DETAIL
 }

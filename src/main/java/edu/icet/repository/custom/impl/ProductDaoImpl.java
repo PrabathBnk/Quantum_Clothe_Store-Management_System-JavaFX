@@ -46,6 +46,33 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     @Override
+    public Product getProduct(String nameOrId) {
+        String SQL = "SELECT * FROM Product WHERE ProductID LIKE '%" + nameOrId + "%' OR NAME LIKE '" + nameOrId + "%'";
+
+        try {
+            Connection connection = DBConnection.getInstance().getConnection();
+            PreparedStatement psTm = connection.prepareStatement(SQL);
+
+            ResultSet resultSet = psTm.executeQuery();
+            if (resultSet.next()) {
+                return new Product(
+                        resultSet.getString(1),
+                        resultSet.getString(2),
+                        resultSet.getString(3),
+                        resultSet.getDouble(4),
+                        resultSet.getInt(5),
+                        resultSet.getString(6),
+                        resultSet.getString(7),
+                        resultSet.getString(8)
+                );
+            }
+            return null;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
     public boolean deleteProductById(String id) {
         String SQL = "DELETE FROM Product WHERE ProductID=?";
         try {

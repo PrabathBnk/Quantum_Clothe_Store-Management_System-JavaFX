@@ -1,10 +1,15 @@
 package edu.icet.repository.custom.impl;
 
+import edu.icet.db.DBConnection;
 import edu.icet.entity.UserLog;
 import edu.icet.repository.custom.UserLogDao;
 import edu.icet.util.HibernateUtil;
 import org.hibernate.Session;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 public class UserLogDaoImpl implements UserLogDao {
@@ -45,4 +50,19 @@ public class UserLogDaoImpl implements UserLogDao {
     }
 
 
+    @Override
+    public String getLastLogUserId() {
+        String SQL = "SELECT UserID FROM UserLog ORDER BY LogDateandTime DESC";
+
+        try {
+            Connection connection = DBConnection.getInstance().getConnection();
+            PreparedStatement psTm = connection.prepareStatement(SQL);
+            ResultSet resultSet = psTm.executeQuery();
+
+            return resultSet.next() ? resultSet.getString(1): null;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

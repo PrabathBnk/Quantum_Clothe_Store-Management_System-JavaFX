@@ -21,6 +21,9 @@ public class DaoFactory {
             case SUPPLIER: return (T) new SupplierDaoImpl();
             case PRODUCT: return (T) new ProductDaoImpl();
             case CATEGORY: return (T) new CategoryDaoImpl();
+            case ORDERS: return (T) new OrderDaoImpl();
+            case PAYMENT_TYPE: return (T) new PaymentTypeDaoImpl();
+            case ORDER_DETAIL: return (T) new OrderDetailDaoImpl();
             default: return null;
         }
     }

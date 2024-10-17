@@ -18,8 +18,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Text?>
 
-
-<BorderPane style="-fx-background-color: #fff;" styleClass="poppins" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.order.PlaceOrderModalFormController">
+<BorderPane fx:id="pane" style="-fx-background-color: #fff;" styleClass="poppins" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.order.PlaceOrderModalFormController">
    <top>
       <VBox BorderPane.alignment="CENTER">
          <children>
@@ -29,7 +28,7 @@
             <HBox alignment="CENTER_LEFT">
                <children>
                   <Text fill="#7f787b" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 18;" text="Order ID | " />
-                  <Label style="-fx-font-size: 18; -fx-font-weight: 700;" text="O0001" textFill="#d82b5c" />
+                  <Label fx:id="lblOrderId" style="-fx-font-size: 18; -fx-font-weight: 700;" text="O0001" textFill="#d82b5c" />
                </children>
                <VBox.margin>
                   <Insets top="20.0" />
@@ -46,12 +45,12 @@
          <children>
             <HBox>
                <children>
-                  <TextField prefHeight="29.0" prefWidth="589.0" promptText="Search Item" style="-fx-background-color: #fff; -fx-border-color: #BFBABC; -fx-border-radius: 5; -fx-font-size: 13;">
+                  <TextField fx:id="txtSearchBar" prefHeight="29.0" prefWidth="589.0" promptText="Search Item" style="-fx-background-color: #fff; -fx-border-color: #BFBABC; -fx-border-radius: 5; -fx-font-size: 13;">
                      <HBox.margin>
                         <Insets right="30.0" />
                      </HBox.margin>
                   </TextField>
-                  <JFXButton prefHeight="29.0" prefWidth="120.0" styleClass="border-btn" text="Search" />
+                  <JFXButton onAction="#btnSearchProductOnAction" prefHeight="29.0" prefWidth="120.0" styleClass="border-btn" text="Search" />
                </children>
                <VBox.margin>
                   <Insets top="20.0" />
@@ -69,7 +68,7 @@
                               <Insets right="10.0" />
                            </HBox.margin>
                         </Text>
-                        <Label text="P0001" textFill="#484446">
+                        <Label fx:id="lblProductId" maxWidth="50.0" minWidth="-Infinity" prefWidth="50.0" textFill="#484446">
                            <HBox.margin>
                               <Insets right="20.0" />
                            </HBox.margin>
@@ -84,7 +83,7 @@
                               <Insets left="20.0" right="10.0" />
                            </HBox.margin>
                         </Text>
-                        <Label text="Example Name" textFill="#484446">
+                        <Label fx:id="lblProductName" maxWidth="200.0" minWidth="-Infinity" prefWidth="200.0" textFill="#484446">
                            <HBox.margin>
                               <Insets right="20.0" />
                            </HBox.margin>
@@ -99,7 +98,7 @@
                               <Insets left="20.0" right="10.0" />
                            </HBox.margin>
                         </Text>
-                        <Label text="Example Size" textFill="#484446">
+                        <Label fx:id="lblProductSize" maxWidth="30.0" minWidth="-Infinity" prefWidth="30.0" textFill="#484446">
                            <HBox.margin>
                               <Insets right="20.0" />
                            </HBox.margin>
@@ -114,7 +113,7 @@
                               <Insets left="20.0" right="10.0" />
                            </HBox.margin>
                         </Text>
-                        <Label text="Example Size" textFill="#484446">
+                        <Label fx:id="lblProductPrice" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="70.0" textFill="#484446">
                            <HBox.margin>
                               <Insets right="20.0" />
                            </HBox.margin>
@@ -129,13 +128,13 @@
                               <Insets left="20.0" right="10.0" />
                            </HBox.margin>
                         </Text>
-                        <JFXTextField focusColor="#ea496e" prefHeight="0.0" prefWidth="141.0" />
+                        <JFXTextField fx:id="txtQuantity" focusColor="#ea496e" prefHeight="0.0" prefWidth="141.0" />
                      </children>
                      <HBox.margin>
                         <Insets right="30.0" />
                      </HBox.margin>
                   </HBox>
-                  <JFXButton prefHeight="25.0" prefWidth="139.0" style="-fx-background-color: FEE5E9;" text="Add Item" textFill="#d82b5c" />
+                  <JFXButton onAction="#btnAddItemOnAction" prefHeight="25.0" prefWidth="139.0" style="-fx-background-color: FEE5E9;" text="Add Item" textFill="#d82b5c" />
                </children>
             </HBox>
             <VBox prefHeight="442.0" prefWidth="1179.0" style="-fx-border-color: #AFACAD; -fx-border-radius: 8;">
@@ -143,36 +142,60 @@
                   <Insets top="30.0" />
                </VBox.margin>
                <children>
-                  <TableView maxHeight="1.7976931348623157E308">
+                  <TableView fx:id="tblProducts" maxHeight="1.7976931348623157E308">
                     <columns>
-                      <TableColumn maxWidth="150.0" minWidth="-Infinity" prefWidth="75.0" styleClass="table-header">
+                      <TableColumn fx:id="colNum" maxWidth="150.0" minWidth="-Infinity" prefWidth="75.0" sortable="false">
                            <graphic>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="#" />
+                              <HBox alignment="CENTER" styleClass="table-header">
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="#" />
+                                 </children>
+                              </HBox>
                            </graphic>
                         </TableColumn>
-                      <TableColumn maxWidth="350.0" minWidth="-Infinity" prefWidth="220.0" styleClass="table-header">
+                      <TableColumn fx:id="colProductId" maxWidth="350.0" minWidth="-Infinity" prefWidth="220.0" sortable="false">
                            <graphic>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Product ID" />
+                              <HBox alignment="CENTER" styleClass="table-header">
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Product ID" />
+                                 </children>
+                              </HBox>
                            </graphic>
                         </TableColumn>
-                        <TableColumn maxWidth="500.0" minWidth="-Infinity" prefWidth="350.0" styleClass="table-header">
+                        <TableColumn fx:id="colProductName" maxWidth="500.0" minWidth="-Infinity" prefWidth="350.0" sortable="false">
                            <graphic>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Product Name" />
+                              <HBox alignment="CENTER" styleClass="table-header">
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Product Name" />
+                                 </children>
+                              </HBox>
                            </graphic>
                         </TableColumn>
-                        <TableColumn maxWidth="300.0" minWidth="-Infinity" prefWidth="230.0" styleClass="table-header">
+                        <TableColumn fx:id="colUnitPrice" maxWidth="300.0" minWidth="-Infinity" prefWidth="230.0" sortable="false">
                            <graphic>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Unit Price" />
+                              <HBox alignment="CENTER" styleClass="table-header">
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Unit Price" />
+                                 </children>
+                              </HBox>
                            </graphic>
                         </TableColumn>
-                        <TableColumn maxWidth="220.0" minWidth="-Infinity" prefWidth="150.0" styleClass="table-header">
+                        <TableColumn fx:id="colQuantity" maxWidth="220.0" minWidth="-Infinity" prefWidth="150.0" sortable="false">
                            <graphic>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Quantity" />
+                              <HBox alignment="CENTER" styleClass="table-header">
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Quantity" />
+                                 </children>
+                              </HBox>
                            </graphic>
                         </TableColumn>
-                        <TableColumn maxWidth="250.0" minWidth="-Infinity" prefWidth="200.0" styleClass="table-header">
+                        <TableColumn fx:id="colTotalAmount" maxWidth="250.0" minWidth="-Infinity" prefWidth="200.0" sortable="false">
                            <graphic>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Total Amount" />
+                              <HBox alignment="CENTER" styleClass="table-header">
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 600;" text="Total Amount" />
+                                 </children>
+                              </HBox>
                            </graphic>
                         </TableColumn>
                     </columns>
@@ -182,7 +205,7 @@
                   </TableView>
                </children>
                <padding>
-                  <Insets bottom="20.0" left="20.0" right="30.0" top="20.0" />
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </padding>
             </VBox>
             <HBox alignment="CENTER_RIGHT">
@@ -208,21 +231,21 @@
                               <Text fill="#7f787b" layoutX="10.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 14; -fx-font-weight: 700;" text="Payment" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
                               <Text fill="#7f787b" layoutX="10.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 14; -fx-font-weight: 700;" text="Balance" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
                               <Text fill="#7f787b" layoutX="10.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 14; -fx-font-weight: 700;" text="Payment Type" GridPane.rowIndex="3" GridPane.valignment="BOTTOM" />
-                              <Text fill="#554f51" layoutX="10.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 14; -fx-font-weight: 700;" text="0000.00" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="BOTTOM" />
-                              <JFXTextField GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                              <Text fx:id="lblNetTotal" fill="#554f51" layoutX="10.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 14; -fx-font-weight: 700;" text="0000.00" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="BOTTOM" />
+                              <JFXTextField fx:id="txtPaymentAmount" focusColor="#ea496e" onKeyReleased="#txtPaymentAmountOnKeyReleased" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets left="20.0" />
                                  </GridPane.margin>
                               </JFXTextField>
-                              <JFXComboBox maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                              <JFXComboBox fx:id="cmbPaymentType" focusColor="#ea496e" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
                                  <GridPane.margin>
                                     <Insets left="20.0" />
                                  </GridPane.margin>
                               </JFXComboBox>
-                              <Text fill="#554f51" layoutX="301.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 14; -fx-font-weight: 700;" text="0000.00" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
+                              <Text fx:id="lblBalance" fill="#554f51" layoutX="301.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 14; -fx-font-weight: 700;" text="0000.00" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
                            </children>
                         </GridPane>
-                        <JFXButton prefHeight="25.0" prefWidth="181.0" styleClass="primary-btn" text="Place Order">
+                        <JFXButton onAction="#btnPlaceOrderOnAction" prefHeight="25.0" prefWidth="181.0" styleClass="primary-btn" text="Place Order">
                            <VBox.margin>
                               <Insets top="30.0" />
                            </VBox.margin>

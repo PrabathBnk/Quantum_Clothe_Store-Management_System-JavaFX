@@ -5,5 +5,7 @@ public enum ServiceType {
     USER,
     SUPPLIER,
     PRODUCT,
-    CATEGORY
+    CATEGORY,
+    ORDERS,
+    PAYMENT_TYPE
 }
