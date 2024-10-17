@@ -1,7 +1,11 @@
 package edu.icet.controller.order;
 
 import edu.icet.dto.OrderDto;
+import edu.icet.service.ServiceFactory;
+import edu.icet.service.custom.OrderService;
 import edu.icet.util.SceneSwitcher;
+import edu.icet.util.ServiceType;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,6 +19,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class OrderFormController implements Initializable {
+
+    static OrderDto orderDto;
 
     @FXML
     private TableColumn<?, ?> colDate;
@@ -84,14 +90,21 @@ public class OrderFormController implements Initializable {
         colNum.setCellValueFactory(new PropertyValueFactory<>("num"));
         colOrderId.setCellValueFactory(new PropertyValueFactory<>("orderID"));
         colNetTotal.setCellValueFactory(new PropertyValueFactory<>("netTotal"));
-        colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
+        colDate.setCellValueFactory(new PropertyValueFactory<>("orderDate"));
         colPaymentType.setCellValueFactory(new PropertyValueFactory<>("paymentType"));
 
+        loadTable();
 
+        tblOrders.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
+            orderDto = newValue;
+            Stage stage = SceneSwitcher.showModal(mainPane.getScene().getWindow(), "../../../view/order_modal_form.fxml");
+            stage.setUserData(this);
+        });
     }
 
     void loadTable(){
-
+        OrderService service = ServiceFactory.getInstance().getService(ServiceType.ORDERS);
+        tblOrders.setItems(FXCollections.observableArrayList(service.getAllOrders()));
     }
 
     TableView<OrderDto> getTableView(){

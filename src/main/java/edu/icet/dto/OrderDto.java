@@ -15,8 +15,8 @@ public class OrderDto {
 
     private String orderID;
     private Double netTotal;
-    private LocalDate orderDate;
-    private LocalDate returnDate;
+    private String orderDate;
+    private String returnDate;
     private String paymentType;
     private Integer num;
 }

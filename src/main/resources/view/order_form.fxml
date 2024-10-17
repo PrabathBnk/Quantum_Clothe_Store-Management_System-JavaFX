@@ -126,7 +126,7 @@
             </HBox>
             <VBox style="-fx-background-color: #fff; -fx-background-radius: 10;">
                <children>
-                  <TableView fx:id="tblOrders" maxHeight="-Infinity" minHeight="200.0" prefHeight="730.0">
+                  <TableView fx:id="tblOrders" focusTraversable="false" maxHeight="-Infinity" minHeight="200.0" prefHeight="730.0">
                     <columns>
                       <TableColumn fx:id="colNum" maxWidth="100.0" minWidth="-Infinity" prefWidth="90.0" sortable="false">
                            <graphic>

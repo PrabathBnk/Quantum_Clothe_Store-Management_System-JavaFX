@@ -10,12 +10,24 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class OrderDetailDaoImpl implements OrderDetailDao {
     @Override
     public boolean update(OrderDetail orderDetail) {
-        return false;
+        String SQL = "UPDATE OrderDetail SET Qty=? WHERE OrderId=? AND ProductId=?";
+        try {
+            Connection connection = DBConnection.getInstance().getConnection();
+            PreparedStatement psTm = connection.prepareStatement(SQL);
+            psTm.setObject(1, orderDetail.getQty());
+            psTm.setObject(2, orderDetail.getOrderID());
+            psTm.setObject(3, orderDetail.getProductID());
+
+            return psTm.executeUpdate() > 0;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
@@ -41,7 +53,16 @@ public class OrderDetailDaoImpl implements OrderDetailDao {
 
     @Override
     public boolean delete(OrderDetail orderDetail) {
-        return false;
+        String SQL = "DELETE FROM OrderDetail WHERE OrderId=?";
+        try {
+            Connection connection = DBConnection.getInstance().getConnection();
+            PreparedStatement psTm = connection.prepareStatement(SQL);
+            psTm.setObject(1, orderDetail.getOrderID());
+
+            return psTm.executeUpdate() > 0;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
@@ -51,7 +72,27 @@ public class OrderDetailDaoImpl implements OrderDetailDao {
 
     @Override
     public List<OrderDetail> getAll() {
-        return List.of();
+        String SQL = "SELECT * FROM OrderDetail";
+
+        try {
+            Connection connection = DBConnection.getInstance().getConnection();
+            PreparedStatement psTm = connection.prepareStatement(SQL);
+            ResultSet resultSet = psTm.executeQuery();
+
+            List<OrderDetail> orderDetailList = new ArrayList<>();
+            while (resultSet.next()) {
+                orderDetailList.add(new OrderDetail(
+                        resultSet.getString(1),
+                        resultSet.getString(2),
+                        resultSet.getInt(3)
+                ));
+            }
+
+            return orderDetailList;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
 }

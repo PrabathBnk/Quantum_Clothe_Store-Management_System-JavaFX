@@ -143,7 +143,7 @@ public class PlaceOrderModalFormController implements Initializable {
         boolean isOrderPlaced = orderService.placeOrder(new OrderDto(
                 lblOrderId.getText(),
                 Double.parseDouble(lblNetTotal.getText()),
-                LocalDate.now(),
+                LocalDate.now().toString(),
                 null,
                 cmbPaymentType.getValue(),
                 null
