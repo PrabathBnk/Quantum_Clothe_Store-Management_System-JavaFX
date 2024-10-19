@@ -18,4 +18,5 @@ public interface UserService extends SuperService {
     String generateUserId();
     boolean addNewUser(UserDto userDto);
     boolean deleteUser(UserTableDto userTableDto);
+    boolean lastLogIsAdmin();
 }

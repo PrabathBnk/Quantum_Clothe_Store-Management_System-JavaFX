@@ -5,4 +5,5 @@ import edu.icet.repository.CrudDao;
 
 public interface UserLogDao extends CrudDao<UserLog> {
     String getLastLogUserId();
+    String getLastLogUserType();
 }

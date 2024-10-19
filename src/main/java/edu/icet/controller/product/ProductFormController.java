@@ -3,6 +3,7 @@ package edu.icet.controller.product;
 import edu.icet.dto.ProductDto;
 import edu.icet.service.ServiceFactory;
 import edu.icet.service.custom.ProductService;
+import edu.icet.service.custom.UserService;
 import edu.icet.util.SceneSwitcher;
 import edu.icet.util.ServiceType;
 import javafx.collections.FXCollections;
@@ -46,19 +47,10 @@ public class ProductFormController implements Initializable {
     @FXML
     private TableView<ProductDto> tblProducts;
 
-    @FXML
-    void btnSlideBarEmployee(ActionEvent event) {
-        SceneSwitcher.switchSceneTo((Stage) mainPane.getScene().getWindow(), SceneSwitcher.EMPLOYEE);
-    }
 
     @FXML
     void btnSlideBarOrder(ActionEvent event) {
         SceneSwitcher.switchSceneTo((Stage) mainPane.getScene().getWindow(), SceneSwitcher.ORDER);
-    }
-
-    @FXML
-    void btnSlideBarProduct(ActionEvent event) {
-        SceneSwitcher.switchSceneTo((Stage) mainPane.getScene().getWindow(), SceneSwitcher.PRODUCT);
     }
 
     @FXML
@@ -71,13 +63,9 @@ public class ProductFormController implements Initializable {
         SceneSwitcher.switchSceneTo((Stage) mainPane.getScene().getWindow(), SceneSwitcher.SUPPLIER);
     }
 
-    @FXML
-    void btnSlideBarUser(ActionEvent event) {
-        SceneSwitcher.switchSceneTo((Stage) mainPane.getScene().getWindow(), SceneSwitcher.USER);
-    }
-
     public void btnSlideBarDashboard(ActionEvent actionEvent) {
-        SceneSwitcher.switchSceneTo((Stage) mainPane.getScene().getWindow(), SceneSwitcher.ADMIN_DASHBOARD);
+        UserService userService = ServiceFactory.getInstance().getService(ServiceType.USER);
+        SceneSwitcher.switchSceneTo((Stage) mainPane.getScene().getWindow(),  userService.lastLogIsAdmin() ? SceneSwitcher.ADMIN_DASHBOARD: SceneSwitcher.GENERAL_DASHBOARD);
     }
 
 

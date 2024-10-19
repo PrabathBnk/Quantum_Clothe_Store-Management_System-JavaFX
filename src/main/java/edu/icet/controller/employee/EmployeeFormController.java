@@ -72,6 +72,7 @@ public class EmployeeFormController implements Initializable {
         SceneSwitcher.switchSceneTo((Stage) mainPane.getScene().getWindow(), SceneSwitcher.USER);
     }
 
+    @FXML
     public void btnSlideBarDashboard(ActionEvent actionEvent) {
         SceneSwitcher.switchSceneTo((Stage) mainPane.getScene().getWindow(), SceneSwitcher.ADMIN_DASHBOARD);
     }

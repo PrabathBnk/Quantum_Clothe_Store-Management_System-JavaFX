@@ -11,12 +11,6 @@ public class GeneralDashboardFormController {
     @FXML
     private BorderPane mainPane;
 
-
-    @FXML
-    void btnSlideBarEmployee(ActionEvent event) {
-        SceneSwitcher.switchSceneTo((Stage) mainPane.getScene().getWindow(), SceneSwitcher.EMPLOYEE);
-    }
-
     @FXML
     void btnSlideBarOrder(ActionEvent event) {
         SceneSwitcher.switchSceneTo((Stage) mainPane.getScene().getWindow(), SceneSwitcher.ORDER);
@@ -35,10 +29,5 @@ public class GeneralDashboardFormController {
     @FXML
     void btnSlideBarSupplier(ActionEvent event) {
         SceneSwitcher.switchSceneTo((Stage) mainPane.getScene().getWindow(), SceneSwitcher.SUPPLIER);
-    }
-
-    @FXML
-    void btnSlideBarUser(ActionEvent event) {
-        SceneSwitcher.switchSceneTo((Stage) mainPane.getScene().getWindow(), SceneSwitcher.USER);
     }
 }

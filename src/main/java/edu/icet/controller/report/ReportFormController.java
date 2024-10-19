@@ -3,6 +3,7 @@ package edu.icet.controller.report;
 import com.jfoenix.controls.JFXListView;
 import edu.icet.service.ServiceFactory;
 import edu.icet.service.custom.ReportService;
+import edu.icet.service.custom.UserService;
 import edu.icet.util.ReportType;
 import edu.icet.util.SceneSwitcher;
 import edu.icet.util.ServiceType;
@@ -36,10 +37,6 @@ public class ReportFormController implements Initializable {
 
     private ReportService reportService;
 
-    @FXML
-    void btnSlideBarEmployee(ActionEvent event) {
-        SceneSwitcher.switchSceneTo((Stage) mainPane.getScene().getWindow(), SceneSwitcher.EMPLOYEE);
-    }
 
     @FXML
     void btnSlideBarOrder(ActionEvent event) {
@@ -51,23 +48,16 @@ public class ReportFormController implements Initializable {
         SceneSwitcher.switchSceneTo((Stage) mainPane.getScene().getWindow(), SceneSwitcher.PRODUCT);
     }
 
-    @FXML
-    void btnSlideBarReport(ActionEvent event) {
-        SceneSwitcher.switchSceneTo((Stage) mainPane.getScene().getWindow(), SceneSwitcher.REPORT);
-    }
 
     @FXML
     void btnSlideBarSupplier(ActionEvent event) {
         SceneSwitcher.switchSceneTo((Stage) mainPane.getScene().getWindow(), SceneSwitcher.SUPPLIER);
     }
 
-    @FXML
-    void btnSlideBarUser(ActionEvent event) {
-        SceneSwitcher.switchSceneTo((Stage) mainPane.getScene().getWindow(), SceneSwitcher.USER);
-    }
 
     public void btnSlideBarDashboard(ActionEvent actionEvent) {
-
+        UserService userService = ServiceFactory.getInstance().getService(ServiceType.USER);
+        SceneSwitcher.switchSceneTo((Stage) mainPane.getScene().getWindow(),  userService.lastLogIsAdmin() ? SceneSwitcher.ADMIN_DASHBOARD: SceneSwitcher.GENERAL_DASHBOARD);
     }
 
 

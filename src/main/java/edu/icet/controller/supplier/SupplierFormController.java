@@ -3,6 +3,7 @@ package edu.icet.controller.supplier;
 import edu.icet.dto.SupplierDto;
 import edu.icet.service.ServiceFactory;
 import edu.icet.service.custom.SupplierService;
+import edu.icet.service.custom.UserService;
 import edu.icet.util.SceneSwitcher;
 import edu.icet.util.ServiceType;
 import javafx.collections.FXCollections;
@@ -44,10 +45,6 @@ public class SupplierFormController implements Initializable {
     private BorderPane mainPane;
 
 
-    @FXML
-    void btnSlideBarEmployee(ActionEvent event) {
-        SceneSwitcher.switchSceneTo((Stage) mainPane.getScene().getWindow(), SceneSwitcher.EMPLOYEE);
-    }
 
     @FXML
     void btnSlideBarOrder(ActionEvent event) {
@@ -64,18 +61,11 @@ public class SupplierFormController implements Initializable {
         SceneSwitcher.switchSceneTo((Stage) mainPane.getScene().getWindow(), SceneSwitcher.REPORT);
     }
 
-    @FXML
-    void btnSlideBarSupplier(ActionEvent event) {
-        SceneSwitcher.switchSceneTo((Stage) mainPane.getScene().getWindow(), SceneSwitcher.SUPPLIER);
-    }
 
-    @FXML
-    void btnSlideBarUser(ActionEvent event) {
-        SceneSwitcher.switchSceneTo((Stage) mainPane.getScene().getWindow(), SceneSwitcher.USER);
-    }
 
     public void btnSlideBarDashboard(ActionEvent actionEvent) {
-
+        UserService userService = ServiceFactory.getInstance().getService(ServiceType.USER);
+        SceneSwitcher.switchSceneTo((Stage) mainPane.getScene().getWindow(),  userService.lastLogIsAdmin() ? SceneSwitcher.ADMIN_DASHBOARD: SceneSwitcher.GENERAL_DASHBOARD);
     }
 
 

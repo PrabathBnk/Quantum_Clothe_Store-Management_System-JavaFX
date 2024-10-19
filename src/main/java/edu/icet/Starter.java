@@ -17,7 +17,7 @@ public class Starter extends Application {
         Scene scene = new Scene(FXMLLoader.load(getClass().getResource("../../view/admin_dashboard.fxml")));
         LoadFontUtil.loadFontToScene(scene);
         stage.setScene(scene);
-        //stage.setMaximized(true);
+//        stage.setMaximized(true);
         stage.show();
     }
 }

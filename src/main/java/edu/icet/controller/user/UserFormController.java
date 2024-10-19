@@ -68,12 +68,8 @@ public class UserFormController implements Initializable {
     }
 
     @FXML
-    void btnSlideBarUser(ActionEvent event) {
-        SceneSwitcher.switchSceneTo((Stage) mainPane.getScene().getWindow(), SceneSwitcher.USER);
-    }
-
     public void btnSlideBarDashboard(ActionEvent actionEvent) {
-
+        SceneSwitcher.switchSceneTo((Stage) mainPane.getScene().getWindow(), SceneSwitcher.ADMIN_DASHBOARD);
     }
 
 

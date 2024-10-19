@@ -170,6 +170,12 @@ public class UserServiceImpl implements UserService {
         ));
     }
 
+    @Override
+    public boolean lastLogIsAdmin() {
+        UserLogDao userLogDao = DaoFactory.getInstance().getDao(DaoType.USERLOG);
+        return userLogDao.getLastLogUserType().equals("Admin");
+    }
+
     private User getUserIfValid(String email){
         EmployeeDao employeeDao = DaoFactory.getInstance().getDao(DaoType.EMPLOYEE);
         String employeeId = employeeDao.getEmployeeByEmail(email);

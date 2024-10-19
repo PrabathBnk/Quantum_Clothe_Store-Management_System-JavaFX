@@ -65,4 +65,18 @@ public class UserLogDaoImpl implements UserLogDao {
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public String getLastLogUserType() {
+        String SQL = "SELECT UserType FROM User INNER JOIN UserLog ON User.UserID = UserLog.UserID ORDER BY LogDateandTime DESC LIMIT 1";
+
+        try {
+            Connection connection = DBConnection.getInstance().getConnection();
+            PreparedStatement psTm = connection.prepareStatement(SQL);
+            ResultSet resultSet = psTm.executeQuery();
+            return resultSet.next() ? resultSet.getString(1): null;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
