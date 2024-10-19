@@ -21,6 +21,7 @@ public class ServiceFactory {
             case CATEGORY: return (T) new CategoryServiceImpl();
             case ORDERS: return (T) new OrderServiceImpl();
             case PAYMENT_TYPE: return (T) new PaymentTypeServiceImpl();
+            case REPORT: return (T) new ReportServiceImpl();
             default: return null;
         }
     }

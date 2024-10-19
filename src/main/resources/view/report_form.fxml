@@ -15,7 +15,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <BorderPane fx:id="mainPane" prefHeight="1000.0" prefWidth="1640.0" style="-fx-background-color: F0EEEE;" styleClass="poppins" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.report.ReportFormController">
    <center>
       <VBox BorderPane.alignment="CENTER">
@@ -41,18 +40,23 @@
                <children>
                   <VBox style="-fx-background-radius: 8; -fx-background-color: fff;">
                      <children>
-                        <HBox styleClass="border-bottom">
+                        <HBox>
                            <children>
-                              <Text fill="#554f51" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 16; -fx-font-weight: 700;" text="Sales Reports" />
+                              <HBox prefWidth="400.0" styleClass="border-bottom">
+                                 <children>
+                                    <Text fill="#554f51" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 16; -fx-font-weight: 700;" text="Inventory Reports" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="3.0" />
+                                 </padding>
+                                 <HBox.margin>
+                                    <Insets right="70.0" />
+                                 </HBox.margin>
+                              </HBox>
+                              <JFXButton onAction="#btnGenerateInventoryReport" styleClass="border-btn" text="Generate Report" />
                            </children>
-                           <VBox.margin>
-                              <Insets right="100.0" />
-                           </VBox.margin>
-                           <padding>
-                              <Insets bottom="3.0" />
-                           </padding>
                         </HBox>
-                        <JFXListView>
+                        <JFXListView fx:id="listInventoryReport">
                            <VBox.margin>
                               <Insets top="15.0" />
                            </VBox.margin>
@@ -64,18 +68,26 @@
                   </VBox>
                   <VBox style="-fx-background-radius: 8; -fx-background-color: fff;" GridPane.columnIndex="1">
                      <children>
-                        <HBox styleClass="border-bottom">
-                           <children>
-                              <Text fill="#554f51" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 16; -fx-font-weight: 700;" text="Inventory Reports" />
-                           </children>
+                        <HBox>
                            <VBox.margin>
-                              <Insets right="100.0" />
+                              <Insets />
                            </VBox.margin>
-                           <padding>
-                              <Insets bottom="3.0" />
-                           </padding>
+                           <children>
+                              <HBox prefWidth="400.0" styleClass="border-bottom">
+                                 <children>
+                                    <Text fill="#554f51" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 16; -fx-font-weight: 700;" text="Employee Reports" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="3.0" />
+                                 </padding>
+                                 <HBox.margin>
+                                    <Insets right="70.0" />
+                                 </HBox.margin>
+                              </HBox>
+                              <JFXButton onAction="#btnGenerateEmployeeReport" styleClass="border-btn" text="Generate Report" />
+                           </children>
                         </HBox>
-                        <JFXListView>
+                        <JFXListView fx:id="listEmployeeReport">
                            <VBox.margin>
                               <Insets top="15.0" />
                            </VBox.margin>
@@ -87,18 +99,23 @@
                   </VBox>
                   <VBox style="-fx-background-radius: 8; -fx-background-color: fff;" GridPane.rowIndex="1">
                      <children>
-                        <HBox styleClass="border-bottom">
+                        <HBox>
                            <children>
-                              <Text fill="#554f51" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 16; -fx-font-weight: 700;" text="Employee Reports" />
+                              <HBox prefWidth="400.0" styleClass="border-bottom">
+                                 <children>
+                                    <Text fill="#554f51" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 16; -fx-font-weight: 700;" text="Supplier Reports" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="3.0" />
+                                 </padding>
+                                 <HBox.margin>
+                                    <Insets right="70.0" />
+                                 </HBox.margin>
+                              </HBox>
+                              <JFXButton onAction="#btnGenerateSupplierReport" styleClass="border-btn" text="Generate Report" />
                            </children>
-                           <VBox.margin>
-                              <Insets right="100.0" />
-                           </VBox.margin>
-                           <padding>
-                              <Insets bottom="3.0" />
-                           </padding>
                         </HBox>
-                        <JFXListView>
+                        <JFXListView fx:id="listSupplierReport">
                            <VBox.margin>
                               <Insets top="15.0" />
                            </VBox.margin>
@@ -110,18 +127,23 @@
                   </VBox>
                   <VBox style="-fx-background-radius: 8; -fx-background-color: fff;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
-                        <HBox styleClass="border-bottom">
+                        <HBox>
                            <children>
-                              <Text fill="#554f51" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 16; -fx-font-weight: 700;" text="Supplier Reports" />
+                              <HBox prefWidth="400.0" styleClass="border-bottom">
+                                 <children>
+                                    <Text fill="#554f51" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 16; -fx-font-weight: 700;" text="Sales Reports" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="3.0" />
+                                 </padding>
+                                 <HBox.margin>
+                                    <Insets right="70.0" />
+                                 </HBox.margin>
+                              </HBox>
+                              <JFXButton onAction="#btnGenerateSalesReport" styleClass="border-btn" text="Generate Report" />
                            </children>
-                           <VBox.margin>
-                              <Insets right="100.0" />
-                           </VBox.margin>
-                           <padding>
-                              <Insets bottom="3.0" />
-                           </padding>
                         </HBox>
-                        <JFXListView>
+                        <JFXListView fx:id="listSalesReport">
                            <VBox.margin>
                               <Insets top="15.0" />
                            </VBox.margin>
@@ -151,7 +173,7 @@
                   <Insets bottom="80.0" />
                </VBox.margin>
             </ImageView>
-            <JFXButton maxWidth="165.0" minHeight="50.0" onAction="#btnSlideBarDashboard" style="-fx-font-weight: 700; -fx-border-radius: 8; -fx-background-radius: 8;" styleClass="active-btn" text="Dashboard" textFill="#7f787b">
+            <JFXButton maxWidth="165.0" minHeight="50.0" onAction="#btnSlideBarDashboard" style="-fx-font-weight: 700; -fx-border-radius: 8; -fx-background-radius: 8;" styleClass="btn" text="Dashboard" textFill="#7f787b">
                <padding>
                   <Insets bottom="10.0" top="10.0" />
                </padding>
@@ -199,7 +221,7 @@
                   <Insets bottom="5.0" />
                </VBox.margin>
             </JFXButton>
-            <JFXButton layoutX="48.0" layoutY="452.0" maxWidth="165.0" minHeight="50.0" onAction="#btnSlideBarReport" style="-fx-font-weight: 700; -fx-border-radius: 8; -fx-background-radius: 8;" styleClass="btn" text="Reports" textFill="#7f787b">
+            <JFXButton layoutX="48.0" layoutY="452.0" maxWidth="165.0" minHeight="50.0" onAction="#btnSlideBarReport" style="-fx-font-weight: 700; -fx-border-radius: 8; -fx-background-radius: 8;" styleClass="active-btn" text="Reports" textFill="#7f787b">
                <padding>
                   <Insets bottom="10.0" top="10.0" />
                </padding>
