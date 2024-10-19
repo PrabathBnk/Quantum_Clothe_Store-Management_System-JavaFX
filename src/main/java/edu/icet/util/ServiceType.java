@@ -8,5 +8,6 @@ public enum ServiceType {
     CATEGORY,
     ORDERS,
     PAYMENT_TYPE,
-    REPORT
+    REPORT,
+    USER_LOG
 }

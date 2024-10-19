@@ -14,7 +14,7 @@ public class Starter extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("../../view/admin_dashboard.fxml")));
+        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("../../view/login_form.fxml")));
         LoadFontUtil.loadFontToScene(scene);
         stage.setScene(scene);
 //        stage.setMaximized(true);

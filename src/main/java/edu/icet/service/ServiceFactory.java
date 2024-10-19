@@ -1,5 +1,6 @@
 package edu.icet.service;
 
+
 import edu.icet.service.custom.impl.*;
 import edu.icet.util.ServiceType;
 
@@ -22,6 +23,7 @@ public class ServiceFactory {
             case ORDERS: return (T) new OrderServiceImpl();
             case PAYMENT_TYPE: return (T) new PaymentTypeServiceImpl();
             case REPORT: return (T) new ReportServiceImpl();
+            case USER_LOG: return (T) new UserLogServiceImpl();
             default: return null;
         }
     }

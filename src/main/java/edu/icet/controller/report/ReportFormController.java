@@ -3,6 +3,7 @@ package edu.icet.controller.report;
 import com.jfoenix.controls.JFXListView;
 import edu.icet.service.ServiceFactory;
 import edu.icet.service.custom.ReportService;
+import edu.icet.service.custom.UserLogService;
 import edu.icet.service.custom.UserService;
 import edu.icet.util.ReportType;
 import edu.icet.util.SceneSwitcher;
@@ -12,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -22,6 +24,8 @@ public class ReportFormController implements Initializable {
     @FXML
     private BorderPane mainPane;
 
+    @FXML
+    private VBox sectionSalesReport;
 
     @FXML
     private JFXListView<?> listEmployeeReport;
@@ -94,8 +98,12 @@ public class ReportFormController implements Initializable {
     }
 
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         reportService = ServiceFactory.getInstance().getService(ServiceType.REPORT);
+
+        UserService userService = ServiceFactory.getInstance().getService(ServiceType.USER);
+        sectionSalesReport.setVisible(userService.lastLogIsAdmin());
     }
 }

@@ -12,6 +12,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeDaoImpl implements EmployeeDao {
@@ -33,24 +34,49 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
     @Override
     public Employee getEmployeeById(String id) {
-        Session session = HibernateUtil.getSession();
-        session.beginTransaction();
-        Employee employee = session.get(Employee.class, id);
-        session.getTransaction().commit();
-        session.close();
-        return employee;
+        String SQL = "SELECT * FROM Employee WHERE EmployeeID=?";
+
+        try {
+            Connection connection = DBConnection.getInstance().getConnection();
+            PreparedStatement psTm = connection.prepareStatement(SQL);
+            psTm.setObject(1, id);
+
+            ResultSet resultSet = psTm.executeQuery();
+            resultSet.next();
+            return new Employee(
+                    resultSet.getString(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getString(4)
+            );
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
     public List<Employee> getAll() {
-        Session session = HibernateUtil.getSession();
-        session.beginTransaction();
-        HibernateCriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
-        CriteriaQuery<Employee> criteriaQuery = criteriaBuilder.createQuery(Employee.class);
-        criteriaQuery.from(Employee.class);
-        List<Employee> employeeList = session.createQuery(criteriaQuery).getResultList();
-        session.close();
-        return employeeList;
+        String SQL = "SELECT * FROM Employee";
+
+        try {
+            Connection connection = DBConnection.getInstance().getConnection();
+            PreparedStatement psTm = connection.prepareStatement(SQL);
+            ResultSet resultSet = psTm.executeQuery();
+
+            List<Employee> employeeList = new ArrayList<>();
+            while (resultSet.next()) {
+                employeeList.add(new Employee(
+                        resultSet.getString(1),
+                        resultSet.getString(2),
+                        resultSet.getString(3),
+                        resultSet.getString(4)
+                ));
+            }
+
+            return employeeList;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

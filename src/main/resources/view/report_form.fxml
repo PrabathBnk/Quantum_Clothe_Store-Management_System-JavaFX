@@ -125,7 +125,7 @@
                         <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
                      </padding>
                   </VBox>
-                  <VBox style="-fx-background-radius: 8; -fx-background-color: fff;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <VBox fx:id="sectionSalesReport" style="-fx-background-radius: 8; -fx-background-color: fff;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
                         <HBox>
                            <children>

@@ -82,6 +82,14 @@
                   <Insets bottom="10.0" top="10.0" />
                </padding>
             </JFXButton>
+            <JFXButton onAction="#btnLogOutOnAction" styleClass="border-btn" text="Log Out">
+               <padding>
+                  <Insets bottom="5.0" left="50.0" right="50.0" top="5.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="330.0" />
+               </VBox.margin>
+            </JFXButton>
          </children>
          <padding>
             <Insets bottom="20.0" left="25.0" right="30.0" top="5.0" />
@@ -145,9 +153,9 @@
                            <children>
                               <VBox alignment="CENTER" minWidth="204.0">
                                  <children>
-                                    <Label fx:id="lblTotalOrders" style="-fx-font-weight: 700;" text="00" textFill="#554f51">
+                                    <Label fx:id="lblTotalOrders" style="-fx-font-weight: 700; -fx-font-size: 75;" text="00" textFill="#554f51">
                                        <font>
-                                          <Font size="95.0" />
+                                          <Font size="75.0" />
                                        </font>
                                     </Label>
                                     <Text fill="#7f787b" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Orders" />
@@ -159,9 +167,9 @@
                               <Separator maxHeight="140.0" orientation="VERTICAL" />
                               <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" minWidth="220.0">
                                  <children>
-                                    <Label fx:id="lblTotalOrderRevenue" style="-fx-font-weight: 700;" text="00" textFill="#554f51">
+                                    <Label fx:id="lblTotalOrderRevenue" style="-fx-font-weight: 700; -fx-font-size: 60;" text="00" textFill="#554f51">
                                        <font>
-                                          <Font size="95.0" />
+                                          <Font size="75.0" />
                                        </font>
                                     </Label>
                                     <Text fill="#7f787b" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Revenue of Orders (LKR)" />
@@ -182,7 +190,7 @@
                                     <Font size="95.0" />
                                  </font>
                               </Label>
-                              <Text fill="#7f787b" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Items" />
+                              <Text fill="#7f787b" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Products" />
                            </children>
                            <padding>
                               <Insets bottom="30.0" left="45.0" right="45.0" top="20.0" />
@@ -264,7 +272,7 @@
                                     <Font size="25.0" />
                                  </font>
                               </Text>
-                              <Text fill="#554f51" layoutX="10.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="poppins" text="Example Name">
+                              <Text fx:id="lblUserName" fill="#554f51" layoutX="10.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="poppins" text="Example Name">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -272,7 +280,7 @@
                                     <Insets top="10.0" />
                                  </VBox.margin>
                               </Text>
-                              <Text fill="#7f787b" layoutX="10.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="poppins" text="example@gmail.com">
+                              <Text fx:id="lblUserEmailAddress" fill="#7f787b" layoutX="10.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="poppins" text="example@gmail.com">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
