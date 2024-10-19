@@ -9,6 +9,7 @@ import edu.icet.entity.Orders;
 import edu.icet.repository.DaoFactory;
 import edu.icet.repository.custom.OrderDao;
 import edu.icet.repository.custom.OrderDetailDao;
+import edu.icet.repository.custom.ProductDao;
 import edu.icet.repository.custom.UserLogDao;
 import edu.icet.service.ServiceFactory;
 import edu.icet.service.custom.OrderService;
@@ -44,10 +45,11 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public boolean saveOrderDetails(List<OrderDetailDto> orderDetailDtoList) {
-
+        ProductDao productDao = DaoFactory.getInstance().getDao(DaoType.PRODUCT);
         OrderDetailDao orderDetailDao = DaoFactory.getInstance().getDao(DaoType.ORDER_DETAIL);
         for (OrderDetailDto orderDetailDto: orderDetailDtoList) {
             if (!orderDetailDao.save(new ModelMapper().map(orderDetailDto, OrderDetail.class))) return false;
+            if (!productDao.updateQuantity(orderDetailDto.getProductID(), orderDetailDto.getQty())) return false;
         }
 
         return true;
@@ -110,9 +112,10 @@ public class OrderServiceImpl implements OrderService {
     public boolean updateOrderDetails(List<OrderDetailDto> orderDetailDtoList) {
         OrderDetailDao orderDetailDao = DaoFactory.getInstance().getDao(DaoType.ORDER_DETAIL);
         orderDetailDao.delete(new OrderDetail(orderDetailDtoList.getFirst().getOrderID(), null, null));
-
+        ProductDao productDao = DaoFactory.getInstance().getDao(DaoType.PRODUCT);
         for (OrderDetailDto orderDetailDto: orderDetailDtoList) {
             if (!orderDetailDao.save(new ModelMapper().map(orderDetailDto, OrderDetail.class))) return false;
+            if (!productDao.updateQuantity(orderDetailDto.getProductID(), orderDetailDto.getQty())) return false;
         }
 
         return true;
@@ -123,7 +126,8 @@ public class OrderServiceImpl implements OrderService {
 
         Orders order = new ModelMapper().map(orderDto, Orders.class);
         order.setPaymentType(paymentTypeService.getPaymentTypeId(orderDto.getPaymentType()));
-        order.setReturnDate(null!=orderDto.getReturnDate() ? LocalDate.parse(orderDto.getOrderDate()): null);
+        order.setOrderDate(LocalDate.now());
+        order.setReturnDate(null!=orderDto.getReturnDate() ? LocalDate.parse(orderDto.getReturnDate()): null);
 
         return order;
     }

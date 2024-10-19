@@ -10,4 +10,5 @@ public interface ProductDao extends CrudDao<Product> {
     String getProductByName(String id, String name);
     Product getProduct(String nameOrId);
     boolean deleteProductById(String id);
+    boolean updateQuantity(String id, Integer qty);
 }

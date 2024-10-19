@@ -86,6 +86,23 @@ public class ProductDaoImpl implements ProductDao {
         }
     }
 
+    @Override
+    public boolean updateQuantity(String id, Integer qty) {
+        String SQL = "UPDATE Product SET QuantityOnHand=QuantityOnHand-? WHERE ProductID=?";
+
+        try {
+            Connection connection = DBConnection.getInstance().getConnection();
+            PreparedStatement psTm = connection.prepareStatement(SQL);
+            psTm.setObject(1, qty);
+            psTm.setObject(2, id);
+
+            return psTm.executeUpdate() > 0;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
 
     @Override
     public boolean update(Product product) {
