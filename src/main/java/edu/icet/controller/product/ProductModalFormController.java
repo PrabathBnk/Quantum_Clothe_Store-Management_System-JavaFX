@@ -106,7 +106,7 @@ public class ProductModalFormController implements Initializable {
         }
 
         if(isProductUpdated) {
-            new Alert(Alert.AlertType.INFORMATION, "Product deleted successfully!").show();
+            new Alert(Alert.AlertType.INFORMATION, "Product updated successfully!").showAndWait();
             Stage stage = (Stage) pane.getScene().getWindow();
             ProductFormController pfc = (ProductFormController) stage.getUserData();
             pfc.loadTable();
