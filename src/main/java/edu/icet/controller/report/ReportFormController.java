@@ -67,20 +67,13 @@ public class ReportFormController implements Initializable {
 
     @FXML
     void btnGenerateEmployeeReport(ActionEvent event) {
-        if (reportService.generateReport(ReportType.EMPLOYEE_REPORT)) {
-            new Alert(Alert.AlertType.INFORMATION, "Report generation successful!, But cannot bew shown.").show();
-        } else {
-            new Alert(Alert.AlertType.ERROR, "Something went wrong!").show();
-        }
+        if (!reportService.generateReport(ReportType.EMPLOYEE_REPORT)) new Alert(Alert.AlertType.ERROR, "Something went wrong!").show();
     }
 
     @FXML
     void btnGenerateInventoryReport(ActionEvent event) {
-        if (reportService.generateReport(ReportType.INVENTORY_REPORT)) {
-            new Alert(Alert.AlertType.INFORMATION, "Report generation successful!, But cannot bew shown.").show();
-        } else {
-            new Alert(Alert.AlertType.ERROR, "Something went wrong!").show();
-        }
+
+        if (!reportService.generateReport(ReportType.INVENTORY_REPORT)) new Alert(Alert.AlertType.ERROR, "Something went wrong!").show();
     }
 
     @FXML
@@ -90,11 +83,8 @@ public class ReportFormController implements Initializable {
 
     @FXML
     void btnGenerateSupplierReport(ActionEvent event) {
-        if (reportService.generateReport(ReportType.SUPPLIER_REPORT)) {
-            new Alert(Alert.AlertType.INFORMATION, "Report generation successful!, But cannot bew shown.").show();
-        } else {
-            new Alert(Alert.AlertType.ERROR, "Something went wrong!").show();
-        }
+
+        if (!reportService.generateReport(ReportType.SUPPLIER_REPORT)) new Alert(Alert.AlertType.ERROR, "Something went wrong!").show();
     }
 
 

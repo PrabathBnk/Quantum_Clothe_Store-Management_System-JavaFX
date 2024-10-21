@@ -25,7 +25,6 @@ public class UserLogDaoImpl implements UserLogDao {
         session.persist(userLog);
         session.getTransaction().commit();
         session.close();
-
         return true;
     }
 

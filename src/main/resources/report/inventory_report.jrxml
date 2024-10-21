@@ -238,94 +238,87 @@ FROM quantumstoredb.product]]></query>
 	<columnHeader>
 		<property name="com.jaspersoft.studio.unit.height" value="px"/>
 	</columnHeader>
-	<detail>
-		<band height="330">
-			<element kind="component" uuid="09806533-6f95-4881-bc5a-2b7493ba3c12" x="1" y="-10" width="555" height="340">
-				<component kind="table">
-					<datasetRun uuid="3513c131-5aa5-4127-addc-e327a738ba74" subDataset="tableDataset">
-						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-					</datasetRun>
-					<column kind="single" uuid="c29cbbeb-8ce1-4466-a6bd-0ce75ffa2221" width="110">
-						<columnHeader height="25" rowSpan="1" style="Table 3_CH">
-							<element kind="staticText" uuid="129f2b88-025e-4667-9983-9ad19a1a5112" x="0" y="0" width="110" height="25" forecolor="#FFFFFF" fontSize="13.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
-								<text><![CDATA[Product ID]]></text>
-							</element>
-						</columnHeader>
-						<detailCell height="25" style="Table 3_TD">
-							<element kind="textField" uuid="f4e3c36d-e493-4f23-9b45-9d53bf9f8fae" x="0" y="0" width="110" height="25" fontSize="12.0" linkType="None" linkTarget="Self" hTextAlign="Center" vTextAlign="Middle">
-								<expression><![CDATA[$F{ProductID}]]></expression>
-							</element>
-							<property name="com.jaspersoft.studio.unit.height" value="px"/>
-						</detailCell>
-						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
-					</column>
-					<column kind="single" uuid="235eafac-1fbc-4221-93ae-8e094e5c27ed" width="210">
-						<columnHeader height="25" rowSpan="1" style="Table 3_CH">
-							<element kind="staticText" uuid="1fc94e62-4fa4-4642-85de-2dc9ebb7a611" x="0" y="0" width="210" height="25" forecolor="#FFFFFF" fontSize="13.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
-								<text><![CDATA[Product Name]]></text>
-							</element>
-							<property name="com.jaspersoft.studio.unit.height" value="px"/>
-						</columnHeader>
-						<detailCell height="25" style="Table 3_TD">
-							<element kind="textField" uuid="b4c4d54e-76ba-4b69-8bdb-8e265aa033fa" x="0" y="0" width="210" height="25" fontSize="12.0" linkType="None" linkTarget="Self" hTextAlign="Left" vTextAlign="Middle">
-								<paragraph leftIndent="10"/>
-								<expression><![CDATA[$F{name}]]></expression>
-								<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
-							</element>
-						</detailCell>
-						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
-					</column>
-					<column kind="single" uuid="69b32ce5-e397-4ef1-9a31-3ffa28c5308d" width="60">
-						<columnHeader height="25" rowSpan="1" style="Table 3_CH">
-							<element kind="staticText" uuid="ea9e8a03-4e8e-46d0-a68a-fcbfb5241030" x="0" y="0" width="60" height="25" forecolor="#FFFFFF" fontSize="13.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
-								<text><![CDATA[Size]]></text>
-							</element>
-						</columnHeader>
-						<detailCell height="25" style="Table 3_TD">
-							<element kind="textField" uuid="5c5901e9-6159-42fe-aca2-90b2dce0d4a5" x="0" y="0" width="60" height="25" fontSize="12.0" linkType="None" linkTarget="Self" hTextAlign="Center" vTextAlign="Middle">
-								<expression><![CDATA[$F{productSize}]]></expression>
-							</element>
-						</detailCell>
-						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
-					</column>
-					<column kind="single" uuid="3e595fb8-921b-4243-b522-889c9b7c6dbd" width="120">
-						<columnHeader height="25" rowSpan="1" style="Table 3_CH">
-							<element kind="staticText" uuid="b8ffc0f2-f255-4255-b74c-5731c2aa1ed5" x="0" y="0" width="120" height="25" forecolor="#FFFFFF" fontSize="13.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
-								<text><![CDATA[Price]]></text>
-							</element>
-						</columnHeader>
-						<detailCell height="25" style="Table 3_TD">
-							<element kind="textField" uuid="26e14b3e-59cb-4d0e-98bd-284e3c6a23b6" x="0" y="0" width="120" height="25" fontSize="12.0" linkType="None" linkTarget="Self" hTextAlign="Center" vTextAlign="Middle">
-								<expression><![CDATA[$F{price}]]></expression>
-							</element>
-						</detailCell>
-						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column4"/>
-					</column>
-					<column kind="single" uuid="fb8365be-3aff-4938-a920-ebda3764640b" width="55">
-						<columnHeader height="25" rowSpan="1" style="Table 3_CH">
-							<element kind="staticText" uuid="eee90bc8-6e04-4684-856f-f543f734512d" x="0" y="0" width="55" height="25" forecolor="#FFFFFF" fontSize="13.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
-								<text><![CDATA[Qty]]></text>
-							</element>
-						</columnHeader>
-						<detailCell height="25" style="Table 3_TD">
-							<element kind="textField" uuid="e93a7684-8159-42bd-9e45-3069225f07a8" x="0" y="0" width="55" height="25" fontSize="12.0" linkType="None" linkTarget="Self" hTextAlign="Center" vTextAlign="Middle">
-								<expression><![CDATA[$F{QuantityOnHand}]]></expression>
-							</element>
-						</detailCell>
-						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column5"/>
-					</column>
-				</component>
-				<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
-				<property name="com.jaspersoft.studio.table.style.table_header" value="Table 3_TH"/>
-				<property name="com.jaspersoft.studio.table.style.column_header" value="Table 3_CH"/>
-				<property name="com.jaspersoft.studio.table.style.detail" value="Table 3_TD"/>
-			</element>
-		</band>
-	</detail>
-	<lastPageFooter height="177">
-		<element kind="staticText" uuid="36aa233d-4305-48e6-974a-1bbf89bb3c8f" positionType="Float" mode="Opaque" x="0" y="147" width="556" height="30" forecolor="#999999" backcolor="#F5F5F5" fontName="SansSerif" fontSize="9.0" italic="false" hTextAlign="Center" vTextAlign="Middle">
-			<text><![CDATA[REPORT GENERATED BY QUANTUM STORE MANAGEMENT SYSTEM]]></text>
+	<summary height="100">
+		<element kind="component" uuid="09806533-6f95-4881-bc5a-2b7493ba3c12" x="1" y="-10" width="555" height="80">
+			<component kind="table">
+				<datasetRun uuid="3513c131-5aa5-4127-addc-e327a738ba74" subDataset="tableDataset">
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				</datasetRun>
+				<column kind="single" uuid="c29cbbeb-8ce1-4466-a6bd-0ce75ffa2221" width="110">
+					<columnHeader height="25" rowSpan="1" style="Table 3_CH">
+						<element kind="staticText" uuid="129f2b88-025e-4667-9983-9ad19a1a5112" x="0" y="0" width="110" height="25" forecolor="#FFFFFF" fontSize="13.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+							<text><![CDATA[Product ID]]></text>
+						</element>
+					</columnHeader>
+					<detailCell height="25" style="Table 3_TD">
+						<element kind="textField" uuid="f4e3c36d-e493-4f23-9b45-9d53bf9f8fae" x="0" y="0" width="110" height="25" fontSize="12.0" linkType="None" linkTarget="Self" hTextAlign="Center" vTextAlign="Middle">
+							<expression><![CDATA[$F{ProductID}]]></expression>
+						</element>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</detailCell>
+					<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+				</column>
+				<column kind="single" uuid="235eafac-1fbc-4221-93ae-8e094e5c27ed" width="210">
+					<columnHeader height="25" rowSpan="1" style="Table 3_CH">
+						<element kind="staticText" uuid="1fc94e62-4fa4-4642-85de-2dc9ebb7a611" x="0" y="0" width="210" height="25" forecolor="#FFFFFF" fontSize="13.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+							<text><![CDATA[Product Name]]></text>
+						</element>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</columnHeader>
+					<detailCell height="25" style="Table 3_TD">
+						<element kind="textField" uuid="b4c4d54e-76ba-4b69-8bdb-8e265aa033fa" x="0" y="0" width="210" height="25" fontSize="12.0" linkType="None" linkTarget="Self" hTextAlign="Left" vTextAlign="Middle">
+							<paragraph leftIndent="10"/>
+							<expression><![CDATA[$F{name}]]></expression>
+							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+						</element>
+					</detailCell>
+					<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+				</column>
+				<column kind="single" uuid="69b32ce5-e397-4ef1-9a31-3ffa28c5308d" width="60">
+					<columnHeader height="25" rowSpan="1" style="Table 3_CH">
+						<element kind="staticText" uuid="ea9e8a03-4e8e-46d0-a68a-fcbfb5241030" x="0" y="0" width="60" height="25" forecolor="#FFFFFF" fontSize="13.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+							<text><![CDATA[Size]]></text>
+						</element>
+					</columnHeader>
+					<detailCell height="25" style="Table 3_TD">
+						<element kind="textField" uuid="5c5901e9-6159-42fe-aca2-90b2dce0d4a5" x="0" y="0" width="60" height="25" fontSize="12.0" linkType="None" linkTarget="Self" hTextAlign="Center" vTextAlign="Middle">
+							<expression><![CDATA[$F{productSize}]]></expression>
+						</element>
+					</detailCell>
+					<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+				</column>
+				<column kind="single" uuid="3e595fb8-921b-4243-b522-889c9b7c6dbd" width="120">
+					<columnHeader height="25" rowSpan="1" style="Table 3_CH">
+						<element kind="staticText" uuid="b8ffc0f2-f255-4255-b74c-5731c2aa1ed5" x="0" y="0" width="120" height="25" forecolor="#FFFFFF" fontSize="13.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+							<text><![CDATA[Price]]></text>
+						</element>
+					</columnHeader>
+					<detailCell height="25" style="Table 3_TD">
+						<element kind="textField" uuid="26e14b3e-59cb-4d0e-98bd-284e3c6a23b6" x="0" y="0" width="120" height="25" fontSize="12.0" linkType="None" linkTarget="Self" hTextAlign="Center" vTextAlign="Middle">
+							<expression><![CDATA[$F{price}]]></expression>
+						</element>
+					</detailCell>
+					<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column4"/>
+				</column>
+				<column kind="single" uuid="fb8365be-3aff-4938-a920-ebda3764640b" width="55">
+					<columnHeader height="25" rowSpan="1" style="Table 3_CH">
+						<element kind="staticText" uuid="eee90bc8-6e04-4684-856f-f543f734512d" x="0" y="0" width="55" height="25" forecolor="#FFFFFF" fontSize="13.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+							<text><![CDATA[Qty]]></text>
+						</element>
+					</columnHeader>
+					<detailCell height="25" style="Table 3_TD">
+						<element kind="textField" uuid="e93a7684-8159-42bd-9e45-3069225f07a8" x="0" y="0" width="55" height="25" fontSize="12.0" linkType="None" linkTarget="Self" hTextAlign="Center" vTextAlign="Middle">
+							<expression><![CDATA[$F{QuantityOnHand}]]></expression>
+						</element>
+					</detailCell>
+					<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column5"/>
+				</column>
+			</component>
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+			<property name="com.jaspersoft.studio.table.style.table_header" value="Table 3_TH"/>
+			<property name="com.jaspersoft.studio.table.style.column_header" value="Table 3_CH"/>
+			<property name="com.jaspersoft.studio.table.style.detail" value="Table 3_TD"/>
 		</element>
-		<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-	</lastPageFooter>
+		<property name="com.jaspersoft.studio.unit.height" value="px"/>
+	</summary>
 </jasperReport>

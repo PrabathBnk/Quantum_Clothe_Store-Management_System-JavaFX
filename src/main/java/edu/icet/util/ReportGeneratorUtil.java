@@ -35,7 +35,9 @@ public class ReportGeneratorUtil {
         try {
             JasperCompileManager.compileReportToFile("src/main/resources/report/"+ reportName + ".jrxml");
             JasperPrint jasperPrint = JasperFillManager.fillReport("src/main/resources/report/"+ reportName + ".jasper", parameters, DBConnection.getInstance().getConnection());
-            JasperExportManager.exportReportToPdfFile(jasperPrint, "src/main/resources/generated_reports/"+ reportName + "s/" + (reportName + "-" + parameters.get("reportID") + ".pdf"));
+            String destinationFilePath = "src/main/resources/generated_reports/"+ reportName + "s/" + reportName + "-" + parameters.get("reportID") + ".pdf";
+            JasperExportManager.exportReportToPdfFile(jasperPrint, destinationFilePath);
+            PdfViewer.getInstance().viewPdf(destinationFilePath);
             return true;
         } catch (JRException | SQLException e) {
             throw new RuntimeException(e);

@@ -94,6 +94,11 @@
             <version>19</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.dlsc.pdfviewfx</groupId>
+            <artifactId>pdfviewfx</artifactId>
+            <version>3.1.0</version>
+        </dependency>
 
     </dependencies>
 
