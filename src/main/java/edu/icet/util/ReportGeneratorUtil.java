@@ -13,6 +13,19 @@ public class ReportGeneratorUtil {
 
     private ReportGeneratorUtil() {}
 
+    public static void generateInvoice(String orderId){
+//        try {
+//            JasperCompileManager.compileReportToFile("src/main/resources/report/invoice.jrxml");
+//            JasperPrint jasperPrint = JasperFillManager.fillReport("src/main/resources/report/invoice.jasper", null, DBConnection.getInstance().getConnection());
+//            String destinationFilePath = "src/main/resources/generated_reports/invoices/invoice-"+orderId+".pdf";
+//        } catch (JRException | SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("reportID", orderId);
+        generateReport("invoice",parameters);
+    }
+
     public static boolean generateInventoryReport(){
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("reportID", generateReportID("src/main/resources/generated_reports/inventory_reports", "IR"));

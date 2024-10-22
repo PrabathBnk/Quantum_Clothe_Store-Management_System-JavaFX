@@ -11,6 +11,7 @@ import edu.icet.service.custom.OrderService;
 import edu.icet.service.custom.PaymentTypeService;
 import edu.icet.service.custom.ProductService;
 import edu.icet.util.GenerateIdUtil;
+import edu.icet.util.ReportGeneratorUtil;
 import edu.icet.util.ServiceType;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -167,6 +168,8 @@ public class PlaceOrderModalFormController implements Initializable {
             ofc.getTableView().getSelectionModel().clearSelection();
             ofc.loadTable();
             stage.close();
+            ReportGeneratorUtil.generateInvoice(lblOrderId.getText());
+
         } else {
             new Alert(Alert.AlertType.ERROR, "Something went wrong!").show();
         }

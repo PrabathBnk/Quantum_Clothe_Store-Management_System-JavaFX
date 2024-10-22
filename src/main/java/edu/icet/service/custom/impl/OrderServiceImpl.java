@@ -65,7 +65,7 @@ public class OrderServiceImpl implements OrderService {
             orderDtoList.add(new ModelMapper().map(ordersList.get(i), OrderDto.class));
             orderDtoList.get(i).setOrderDate(ordersList.get(i).getOrderDate().toString());
             orderDtoList.get(i).setReturnDate(null!=ordersList.get(i).getReturnDate() ? ordersList.get(i).getReturnDate().toString(): null);
-            orderDtoList.get(i).setNum(i);
+            orderDtoList.get(i).setNum(i+1);
             orderDtoList.get(i).setPaymentType(paymentTypeService.getPaymentTypeName(ordersList.get(i).getPaymentType()));
         }
 
